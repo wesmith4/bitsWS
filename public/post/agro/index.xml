@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Agro Blog | Academic</title>
+    <link>/post/agro/</link>
+      <atom:link href="/post/agro/index.xml" rel="self" type="application/rss+xml" />
+    <description>Agro Blog</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 11 May 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Agro Blog</title>
+      <link>/post/agro/</link>
+    </image>
+    
+    <item>
+      <title>Welcome!</title>
+      <link>/post/agro/welcome/</link>
+      <pubDate>Mon, 11 May 2020 00:00:00 +0000</pubDate>
+      <guid>/post/agro/welcome/</guid>
+      <description>
+
+
+&lt;p&gt;My name is Will Smith, and I am a rising senior at Davidson College, where I’m pursuing a major in Economics with an additional focus in Applied Mathematics. Approaching my final year of college, I wanted to extend my knowledge and skills in these fields with some published work available online. Thus, I have decided this summer to pursue a data science blog covering topics in agriculture, especially their economic implications.&lt;/p&gt;
+&lt;div id=&#34;background---why-agriculture&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Background - Why Agriculture?&lt;/h2&gt;
+&lt;p&gt;I have long been interested in farming and agriculture, for their obvious role in bringing food and other necessary items to the tables of the world. When I was younger, I had the opportunity to travel with my family to Iowa, where my grandfather owns a corn and soybeans farm. I’m sure my younger self was just ready to get out of the car after hours of driving through fields, but I appreciate having this experience observing a small part of big agriculture first-hand.&lt;/p&gt;
+&lt;p&gt;In Fall 2019, when I studied abroad in Peru, I took a course at the Pontificia Universidad Católica del Perú called “Economía Agraria” (Agrarian Economics). This course proved very difficult, as the professor was discussing pretty advanced material at a fast pace for three hours at a time, and I was one of only two non-native Spanish speakers in the class. Nonetheless, it was fascinating to learn about and research the intricacies of agricultural systems in Peru.&lt;/p&gt;
+&lt;p&gt;This past spring, I took part in Davidson’s Liberal Arts in Silicon Valley program, in which I developed a lot of new skills in Javascript and other web development languages. I learned how to build functional web pages and web apps, such as a crowd-sourced thesaurus, an online recipe box, and a intra-campus communication app. This new ability to create content online gave me the desire to continue putting things out there for people to see my work.&lt;/p&gt;
+&lt;p&gt;Having some experience with data science in R from a course in Spring 2018, I decided to start this blog to bring together my interests in economics and agriculture and my skills and abilities to create and publish content online. Enjoy!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;tools-and-sites-used&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Tools and Sites Used&lt;/h2&gt;
+&lt;p&gt;I am generating the content for this blog through a combination of R Markdown, Blogdown, and Hugo. The site is published to a Netlify site, which serves my personal tech and data science domain &lt;a href=&#34;https://bits.wesmith4.com&#34;&gt;bitsWS&lt;/a&gt;. At least for now, all of the data I will be using comes from &lt;a href=&#34;http://www.fao.org/faostat/en/#home&#34;&gt;FAOSTAT&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
