@@ -1,28 +1,32 @@
 ---
-title: Introduction to FAO Crops Data
-author: Will Smith
-date: '2020-05-12'
-slug: fao-crops
-categories:
-  - Agro
-tags:
-  - R Markdown
-  - plot
-  - databook
-  - farming
-subtitle: ''
-summary: ''
-authors: [admin]
-lastmod: '2020-05-12T08:00:42-05:00'
-featured: yes
-image:
-  caption: ''
-  focal_point: ''
-  preview_only: no
-projects: []
-draft: true
----
+# Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
+title: "Fao Intro"
+subtitle: ""
+summary: ""
+authors: [admin]
+tags: ["R", "RMarkdown", "plot", "data","agro"]
+categories: ["Agro"]
+date: 2020-05-13T16:48:03-05:00
+lastmod: 2020-05-13T16:48:03-05:00
+featured: true
+draft: true
+
+# Featured image
+# To use, add an image named `featured.jpg/png` to your page's folder.
+# Focal points: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight.
+image:
+  caption: ""
+  focal_point: ""
+  preview_only: false
+
+# Projects (optional).
+#   Associate this post with one or more of your projects.
+#   Simply enter your project's folder or file name without extension.
+#   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
+#   Otherwise, set `projects = []`.
+projects: ["agro-blog"]
+---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
@@ -38,12 +42,12 @@ library(plotly)
 ## Welcome!
 With this first post of Agro Blog, I'm going to do some basic exploration of a dataset from the United Nations Food and Agriculture Organization (FAO) which includes measures of production, yield, and area harvested for the whole list of crops and countries recorded, with observations ranging from 1961 to 2018.
 
-In this exploration, I will go through my steps of working with this dataset in R, including the cleaning/tidying process, exploratory analysis, and visualization.  
+In this exploration, I will go through my steps of working with this dataset in R, including the cleaning/tidying process, exploratory analysis, and visualization.
 
 ## Let's get our data ready to use
 ```{r data-import, echo=TRUE, include=TRUE, tidy=TRUE}
 crops <- read_csv("./data/Production_Crops_E_All_Data_NOFLAG.csv",guess_max = 5000) %>% as_tibble()
-head(crops, 10) %>% kable(caption = "Raw dataset from FAOSTAT") %>% 
+head(crops, 10) %>% kable(caption = "Raw dataset from FAOSTAT") %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = TRUE, position = "center")
 ```
 
@@ -81,7 +85,7 @@ showMostProduced <- function(country, year, number, table_position) {
 displayCropInfoByCountry <- function(country, crop, measure) {
   relevantUnit <- crops %>% filter(Element == measure) %>% head(1) %>% select(Unit)
   crops %>% filter(Area == country & Item == crop & Element == measure) %>%
-    ggplot(mapping = aes(x = Year, y = value)) + geom_point() + geom_smooth() + 
+    ggplot(mapping = aes(x = Year, y = value)) + geom_point() + geom_smooth() +
     ggtitle(str_interp("${measure} of ${crop} in ${country}")) + ylab(str_interp("${measure} (${relevantUnit})"))
 }
 
@@ -89,7 +93,7 @@ displayCropsInfoByCountries <- function(countries, some_crops, measure) {
   relevantUnit <- crops %>% filter(Element == measure) %>% head(1) %>% select(Unit)
   crops %>% filter(Area %in% countries & Item %in% some_crops & Element == measure) %>%
     ggplot(mapping = aes(x = Year, y = value, color = Area)) + geom_point() + geom_smooth() +
-    facet_wrap(~ Item, nrow = 1) + 
+    facet_wrap(~ Item, nrow = 1) +
     ggtitle(str_interp("${measure} of ${some_crops}")) + ylab(str_interp("${measure} (${relevantUnit})"))
 }
 ```
@@ -107,7 +111,7 @@ Beginning to examine the data from the United States, let's take a look at the 1
 showMostProduced("United States of America", 2018, 10, "center")
 ```
 
-The results of this table \@ref(tab:usa-top10) confirm the fairly common knowledge that US agriculture is dominated by the cereals. However, it shows that the data I'm using is combining some crop aggregates with individual crops.  Rather than downloading another dataset from the FAOSTAT site, I'm going to filter out the rows that represent an aggregate of crops.  
+The results of this table \@ref(tab:usa-top10) confirm the fairly common knowledge that US agriculture is dominated by the cereals. However, it shows that the data I'm using is combining some crop aggregates with individual crops.  Rather than downloading another dataset from the FAOSTAT site, I'm going to filter out the rows that represent an aggregate of crops.
 
 ```{r remove-aggregates, echo=FALSE, tidy=TRUE}
 crops_aggregated <- c("Cereals (Rice Milled Eqv)", "Cereals, Total", "Citrus Fruit, Total", "Coarse Grain, Total", "Crops Primary", "Fibre Crops Primary", "Fruit Primary", "Oilcrops", "Pulses, Total", "Roots and Tubers, Total", "Treenuts, Total", "Vegetables Primary")
@@ -142,7 +146,7 @@ ggplotly(cornGraph, width = 800)
 ```
 
 
-Examining Figure \@ref(fig:corn-graph) above, we can see that production in both the United States and China has increased dramatically in the last half-century, with Brazil making considerable growth as well.  The parallel growth of the US and China suggests the presence of some oligopolistic conditions in the global corn market - those countries had already been established as production leaders, making it difficult for other countries to inject significant competing production.  
+Examining Figure \@ref(fig:corn-graph) above, we can see that production in both the United States and China has increased dramatically in the last half-century, with Brazil making considerable growth as well.  The parallel growth of the US and China suggests the presence of some oligopolistic conditions in the global corn market - those countries had already been established as production leaders, making it difficult for other countries to inject significant competing production.
 
 This dataset does not include any information on domestic vs. foreign consumption for each crop item - an analysis with that data would better inform my opinion on the economic implications of these production data. It would help me answer questions such as "Do the small corn producers produce less because their current production already satisfies domestic consumption, or because the global commodity market forces them out?"
 
@@ -159,6 +163,3 @@ I expected to see the presence of sugar cane and potatoes at the top of this lis
 crops %>% filter(Item == "Potatoes" & Year == 2018 & Element == "Production") %>% select(Area, Item, value) %>%
   arrange(desc(value)) %>% kable(align = "c", caption = "Top 10 Producers of Potatoes, 2018", col.names = c("Country", "Crop", "Production (tons)")) %>% kable_styling(full_width = F, bootstrap_options = c("striped", "hover"))
 ```
-
-
-

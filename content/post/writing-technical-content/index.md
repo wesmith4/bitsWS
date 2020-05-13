@@ -6,6 +6,7 @@ image:
   placement: 3
 math: true
 title: Writing technical content in Academic
+draft: true
 ---
 
 Academic is designed to give technical content creators a seamless experience. You can focus on the content and Academic handles the rest.
@@ -43,8 +44,8 @@ To render *inline* or *block* math, wrap your LaTeX math with `$...$` or `$$...$
 Example **math block**:
 
 ```tex
-$$\gamma_{n} = \frac{ 
-\left | \left (\mathbf x_{n} - \mathbf x_{n-1} \right )^T 
+$$\gamma_{n} = \frac{
+\left | \left (\mathbf x_{n} - \mathbf x_{n-1} \right )^T
 \left [\nabla F (\mathbf x_{n}) - \nabla F (\mathbf x_{n-1}) \right ] \right |}
 {\left \|\nabla F(\mathbf{x}_{n}) - \nabla F(\mathbf{x}_{n-1}) \right \|^2}$$
 ```
@@ -268,15 +269,15 @@ Academic enables you to use a wide range of [icons from _Font Awesome_ and _Acad
 Here are some examples using the `icon` shortcode to render icons:
 
 ```markdown
-{{</* icon name="terminal" pack="fas" */>}} Terminal  
-{{</* icon name="python" pack="fab" */>}} Python  
+{{</* icon name="terminal" pack="fas" */>}} Terminal
+{{</* icon name="python" pack="fab" */>}} Python
 {{</* icon name="r-project" pack="fab" */>}} R
 ```
 
 renders as
 
-{{< icon name="terminal" pack="fas" >}} Terminal  
-{{< icon name="python" pack="fab" >}} Python  
+{{< icon name="terminal" pack="fas" >}} Terminal
+{{< icon name="python" pack="fab" >}} Python
 {{< icon name="r-project" pack="fab" >}} R
 
 ### Did you find this page helpful? Consider sharing it 🙌
