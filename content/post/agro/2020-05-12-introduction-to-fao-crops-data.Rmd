@@ -1,0 +1,164 @@
+---
+title: Introduction to FAO Crops Data
+author: Will Smith
+date: '2020-05-12'
+slug: fao-crops
+categories:
+  - Agro
+tags:
+  - R Markdown
+  - plot
+  - databook
+  - farming
+subtitle: ''
+summary: ''
+authors: [admin]
+lastmod: '2020-05-12T08:00:42-05:00'
+featured: yes
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+draft: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+# Read in modules
+library(tidyverse)
+library(magrittr)
+library(knitr)
+library(kableExtra)
+library(plotly)
+```
+
+
+## Welcome!
+With this first post of Agro Blog, I'm going to do some basic exploration of a dataset from the United Nations Food and Agriculture Organization (FAO) which includes measures of production, yield, and area harvested for the whole list of crops and countries recorded, with observations ranging from 1961 to 2018.
+
+In this exploration, I will go through my steps of working with this dataset in R, including the cleaning/tidying process, exploratory analysis, and visualization.  
+
+## Let's get our data ready to use
+```{r data-import, echo=TRUE, include=TRUE, tidy=TRUE}
+crops <- read_csv("./data/Production_Crops_E_All_Data_NOFLAG.csv",guess_max = 5000) %>% as_tibble()
+head(crops, 10) %>% kable(caption = "Raw dataset from FAOSTAT") %>% 
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = TRUE, position = "center")
+```
+
+This data is not ready to use just yet - all of the years are included as column names (and with that messy "Y").  To fix this, I will use a *pivot* to bring all of those years into a single column "Year".
+
+```{r data-cleaning, echo=TRUE, tidy=TRUE, include=TRUE}
+crops <- crops %>% pivot_longer(
+  cols = starts_with("Y"),
+  names_to = "Year",
+  names_prefix = "Y",
+  values_to = "value",
+  values_drop_na = TRUE
+)
+head(crops, 10) %>% kable("html",caption = "Now-tidy Dataset") %>% kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = TRUE, position = "center")
+```
+
+```{r year-to-numeric}
+crops$Year <- as.numeric(crops$Year)
+```
+
+
+Now, every row in the dataset represents an observation of one *measure* (production, yield, area harvested) of one crop/crop group in one country for a specific year. This organization is much more *tidy*, and easier to work with.
+
+
+
+## Exploratory Data Analysis
+
+```{r define-functions, include=FALSE}
+showMostProduced <- function(country, year, number, table_position) {
+  crops %>% filter(Area == country & Year == year & Element == "Production") %>% select(Item, value) %>%
+    arrange(desc(value)) %>% head(number) %>% kable("html",caption = str_interp("10 Most Produced Crops in ${country}, ${year}"), col.names = c("Crop", "Production (tons)")) %>% kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = FALSE, position = table_position)
+}
+
+# Function to graph time series of a measure of one crop for specific country
+displayCropInfoByCountry <- function(country, crop, measure) {
+  relevantUnit <- crops %>% filter(Element == measure) %>% head(1) %>% select(Unit)
+  crops %>% filter(Area == country & Item == crop & Element == measure) %>%
+    ggplot(mapping = aes(x = Year, y = value)) + geom_point() + geom_smooth() + 
+    ggtitle(str_interp("${measure} of ${crop} in ${country}")) + ylab(str_interp("${measure} (${relevantUnit})"))
+}
+
+displayCropsInfoByCountries <- function(countries, some_crops, measure) {
+  relevantUnit <- crops %>% filter(Element == measure) %>% head(1) %>% select(Unit)
+  crops %>% filter(Area %in% countries & Item %in% some_crops & Element == measure) %>%
+    ggplot(mapping = aes(x = Year, y = value, color = Area)) + geom_point() + geom_smooth() +
+    facet_wrap(~ Item, nrow = 1) + 
+    ggtitle(str_interp("${measure} of ${some_crops}")) + ylab(str_interp("${measure} (${relevantUnit})"))
+}
+```
+
+To streamline my workflow of data visualization, I have defined a few functions to help me present tables and render graphs:
+
+* A function to show the *n* most-produced crops in a given country and year
+* A function to graph a measure of one crop in one country over time
+* A function to graph a measure of multiple crops in multiple countries over time
+
+### United States
+Beginning to examine the data from the United States, let's take a look at the 10 crops with the highest production numbers from 2018:
+
+```{r usa-top10}
+showMostProduced("United States of America", 2018, 10, "center")
+```
+
+The results of this table \@ref(tab:usa-top10) confirm the fairly common knowledge that US agriculture is dominated by the cereals. However, it shows that the data I'm using is combining some crop aggregates with individual crops.  Rather than downloading another dataset from the FAOSTAT site, I'm going to filter out the rows that represent an aggregate of crops.  
+
+```{r remove-aggregates, echo=FALSE, tidy=TRUE}
+crops_aggregated <- c("Cereals (Rice Milled Eqv)", "Cereals, Total", "Citrus Fruit, Total", "Coarse Grain, Total", "Crops Primary", "Fibre Crops Primary", "Fruit Primary", "Oilcrops", "Pulses, Total", "Roots and Tubers, Total", "Treenuts, Total", "Vegetables Primary")
+crops <- crops %>% filter(!(Item %in% crops_aggregated))
+```
+
+
+```{r new-usa-top10}
+showMostProduced("United States of America", 2018, 10, "center")
+```
+
+After removing those aggregate values, we get a much more informative list of the top 10 crops in the United States.  Not surprisingly, corn (Maize), soybeans, and wheat take the podium.  Since corn is the USA's top crop, let's take a look at how the USA corn production compares to other top countries in 2018.
+
+```{r clean-countries, include=FALSE}
+allAreas <- distinct(crops, Area)[[1]]
+areasToRemove <- allAreas[225:length(allAreas)]
+crops <- crops %>% filter(!(Area %in% areasToRemove) & !startsWith(Area, "China, "))
+top10CornCountries <- filter(crops, Year == 2018 & Element == "Production" & Item == "Maize") %>% arrange(desc(value)) %>% select(Area) %>% head(10) %>% dplyr::pull(var = 1)
+```
+
+```{r compare-corn}
+crops %>% filter(Item == "Maize" & Year == 2018 & Element == "Production") %>% select(Area, Item, value) %>% arrange(desc(value)) %>%
+  head(10) %>% kable("html", align = "c", caption = "Top 10 Producers of Corn, 2018", col.names = c("Country", "Crop", "Production (tons)")) %>% kable_styling(full_width = F, bootstrap_options = c("striped", "hover"))
+
+```
+
+Now, with this Table \@ref(tab:compare-corn) of the top ten corn-producing countries, let's see how their production has changed since 1961.
+
+```{r corn-graph, fig.cap="Corn Production", layout="l-body-outset", fig.width=8}
+cornGraph <- displayCropsInfoByCountries(top10CornCountries, c("Maize"), "Production")
+ggplotly(cornGraph, width = 800)
+```
+
+
+Examining Figure \@ref(fig:corn-graph) above, we can see that production in both the United States and China has increased dramatically in the last half-century, with Brazil making considerable growth as well.  The parallel growth of the US and China suggests the presence of some oligopolistic conditions in the global corn market - those countries had already been established as production leaders, making it difficult for other countries to inject significant competing production.  
+
+This dataset does not include any information on domestic vs. foreign consumption for each crop item - an analysis with that data would better inform my opinion on the economic implications of these production data. It would help me answer questions such as "Do the small corn producers produce less because their current production already satisfies domestic consumption, or because the global commodity market forces them out?"
+
+### Peru
+While studying abroad in Peru, I took a course in Agrarian Economics, which dealt primarily with the Peruvian agricultural economy and how it developed over time.  Here, I'll repeat some of the same explorations of crops and production in Peru.
+
+```{r peru-top10}
+showMostProduced("Peru", 2018, 10, "center")
+```
+
+I expected to see the presence of sugar cane and potatoes at the top of this list - these two crops reflect both the Spanish colonial history and indigenous history of the region.  First, let's look at the worldwide top 10 producers of potatoes (which originate from the Andean highlands).
+
+```{r potato-countries}
+crops %>% filter(Item == "Potatoes" & Year == 2018 & Element == "Production") %>% select(Area, Item, value) %>%
+  arrange(desc(value)) %>% kable(align = "c", caption = "Top 10 Producers of Potatoes, 2018", col.names = c("Country", "Crop", "Production (tons)")) %>% kable_styling(full_width = F, bootstrap_options = c("striped", "hover"))
+```
+
+
+
