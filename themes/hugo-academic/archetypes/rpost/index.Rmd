@@ -27,3 +27,13 @@ image:
 #   Otherwise, set `projects = []`.
 projects: []
 ---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+# Read in modules
+library(tidyverse)
+library(magrittr)
+library(knitr)
+library(kableExtra)
+library(plotly)
+```

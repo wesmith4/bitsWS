@@ -1,8 +1,8 @@
 ---
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
-title: "Fao Intro"
-subtitle: ""
+title: "FAO Intro"
+subtitle: "Examining some basic world crops data"
 summary: ""
 authors: [admin]
 tags: ["R", "RMarkdown", "plot", "data","agro"]
@@ -45,8 +45,8 @@ With this first post of Agro Blog, I'm going to do some basic exploration of a d
 In this exploration, I will go through my steps of working with this dataset in R, including the cleaning/tidying process, exploratory analysis, and visualization.
 
 ## Let's get our data ready to use
-```{r data-import, echo=TRUE, include=TRUE, tidy=TRUE}
-crops <- read_csv("./data/Production_Crops_E_All_Data_NOFLAG.csv",guess_max = 5000) %>% as_tibble()
+```{r data-import, echo=TRUE, message=FALSE, warning=FALSE, include=TRUE, tidy=TRUE}
+crops <- read_csv("../data/Production_Crops_E_All_Data_NOFLAG.csv",guess_max = 5000, local = locale(encoding = "latin1")) %>% as_tibble()
 head(crops, 10) %>% kable(caption = "Raw dataset from FAOSTAT") %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = TRUE, position = "center")
 ```
@@ -160,6 +160,6 @@ showMostProduced("Peru", 2018, 10, "center")
 I expected to see the presence of sugar cane and potatoes at the top of this list - these two crops reflect both the Spanish colonial history and indigenous history of the region.  First, let's look at the worldwide top 10 producers of potatoes (which originate from the Andean highlands).
 
 ```{r potato-countries}
-crops %>% filter(Item == "Potatoes" & Year == 2018 & Element == "Production") %>% select(Area, Item, value) %>%
-  arrange(desc(value)) %>% kable(align = "c", caption = "Top 10 Producers of Potatoes, 2018", col.names = c("Country", "Crop", "Production (tons)")) %>% kable_styling(full_width = F, bootstrap_options = c("striped", "hover"))
+crops %>% filter(Item == "Sugar cane" & Year == 2018 & Element == "Production") %>% select(Area, Item, value) %>% 
+  arrange(desc(value)) %>% head(10) %>% kable(align = "c", caption = "Top 10 Producers of Sugar cane, 2018", col.names = c("Country", "Crop", "Production (tons)")) %>% kable_styling(full_width = F, bootstrap_options = c("striped", "hover"))
 ```

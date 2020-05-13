@@ -4,7 +4,7 @@
 title: "{{ replace .Name "-" " " | title }}"
 subtitle: ""
 summary: ""
-authors: []
+authors: [admin]
 tags: []
 categories: []
 date: {{ .Date }}
