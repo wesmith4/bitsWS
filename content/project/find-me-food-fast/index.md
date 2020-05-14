@@ -1,13 +1,13 @@
 ---
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
-title: "Social Wall"
+title: "Find Me Food Fast"
 summary: ""
 authors: [admin]
 tags: ["web app", "web development", "NodeJS"]
 categories: ["Web Apps", "Adjacent Academies"]
-date: 2020-05-13T22:13:27-05:00
-draft: true
+date: 2020-05-14T07:37:22-05:00
+
 # Optional external URL for project (replaces project detail page).
 external_link: ""
 
@@ -27,11 +27,12 @@ links:
 #   icon_pack: fab
 #   icon: twitter
 - name: Site
-  url: http://chatbox-prime.herokuapp.com
+  url: http://find-me-food-fast.herokuapp.com
 - name: GitHub
-  url: https://github.com/wesmith4/project-js-social-wall
+  url: https://github.com/wesmith4/find-me-food-fast
   icon_pack: fab
   icon: github
+
 
 url_code: ""
 url_pdf: ""
@@ -44,4 +45,5 @@ url_video: ""
 #   E.g. `slides = "example-slides"` references `content/slides/example-slides.md`.
 #   Otherwise, set `slides = ""`.
 slides: ""
+draft: true
 ---

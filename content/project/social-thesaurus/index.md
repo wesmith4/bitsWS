@@ -21,11 +21,18 @@ image:
 
 # Custom links (optional).
 #   Uncomment and edit lines below to show custom links.
-# links:
+links:
 # - name: Follow
 #   url: https://twitter.com
 #   icon_pack: fab
 #   icon: twitter
+- name: Site
+  url: http://social-thesaurus.herokuapp.com
+- name: GitHub
+  url: https://github.com/wesmith4/social-thesaurus
+  icon-pack: fab
+  icon: github
+
 
 url_code: ""
 url_pdf: ""

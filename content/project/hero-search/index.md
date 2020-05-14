@@ -21,11 +21,17 @@ image:
 
 # Custom links (optional).
 #   Uncomment and edit lines below to show custom links.
-# links:
+links:
 # - name: Follow
 #   url: https://twitter.com
 #   icon_pack: fab
 #   icon: twitter
+- name: Site
+  url: http://hero-search.herokuapp.com
+- name: GitHub
+  url: https://github.com/jazheng1/Superhero
+  icon_pack: fab
+  icon: github
 
 url_code: ""
 url_pdf: ""

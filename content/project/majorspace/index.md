@@ -2,7 +2,7 @@
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
 title: "Major Space"
-summary: ""
+summary: "My Adjacent Academies group capstone project."
 authors: [admin]
 tags: ["web app", "web development", "NodeJS", "web-scraping"]
 categories: ["Web Apps", "Adjacent Academies"]
@@ -48,4 +48,6 @@ slides: ""
 draft: true
 ---
 
-The idea for Major Space came into existence during a "kickoff event" for our week of final group capstone projects in my Spring 2020 semester with Adjacent Academies.
+The idea for Major Space came into existence during a "kickoff event" for our week of final group capstone projects in my Spring 2020 semester with Adjacent Academies. For myself and my team members Lily Korir and Kendahl Ross, one of the aspects of our Davidson College experience we value the most is the presence of many groups and communities on campus for support and friendship. We decided that we wanted to build an app to facilitate this kind of community-building within the *academic* spheres on campus.
+
+[Major Space](https://majorspace.net) is a Davidson-specific community site, where like-minded students can connect in the "space" for each academic department.  Each Major Space includes a message board, where students can post questions and comments and like others' messages, a feature to write a review for a course, and a page to view the department faculty.
