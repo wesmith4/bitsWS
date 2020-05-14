@@ -24,12 +24,15 @@ social:
 - icon: envelope
   icon_pack: fas
   link: 'mailto:wismith@davidson.edu'
+  target: "_blank"
 - icon: github
   icon_pack: fab
   link: https://github.com/wesmith4
+  target: "_blank"
 - icon: linkedin
   icon_pack: fab
   link: https://linkedin.com/in/williamesmithiv
+  target: "_blank"
 superuser: true
 title: Will Smith
 user_groups:
