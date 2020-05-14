@@ -1,13 +1,13 @@
 ---
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
-title: "Agro Blog"
+title: "Hero Search"
 summary: ""
-authors: []
-tags: ["data", "blog", "r", "r markdown"]
-categories: ["Data", "R"]
-date: 2020-05-13T16:11:56-05:00
-
+authors: [admin]
+tags: ["web app", "web development", "NodeJS"]
+categories: ["Web Apps", "Adjacent Academies"]
+date: 2020-05-13T22:12:54-05:00
+draft: true
 # Optional external URL for project (replaces project detail page).
 external_link: ""
 
@@ -16,7 +16,7 @@ external_link: ""
 # Focal points: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight.
 image:
   caption: ""
-  focal_point: "Smart"
+  focal_point: ""
   preview_only: false
 
 # Custom links (optional).

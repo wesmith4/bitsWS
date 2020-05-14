@@ -1,12 +1,12 @@
 ---
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
-title: "Agro Blog"
+title: "Major Space"
 summary: ""
-authors: []
-tags: ["data", "blog", "r", "r markdown"]
-categories: ["Data", "R"]
-date: 2020-05-13T16:11:56-05:00
+authors: [admin]
+tags: ["web app", "web development", "NodeJS", "web-scraping"]
+categories: ["Web Apps", "Adjacent Academies"]
+date: 2020-05-13T19:05:16-05:00
 
 # Optional external URL for project (replaces project detail page).
 external_link: ""
@@ -21,15 +21,22 @@ image:
 
 # Custom links (optional).
 #   Uncomment and edit lines below to show custom links.
-# links:
+links:
 # - name: Follow
 #   url: https://twitter.com
 #   icon_pack: fab
 #   icon: twitter
+- name: Site
+  url: https://majorspace.net
+- name: GitHub
+  url: https://github.com/wesmith4/majorspace
+  icon_pack: fab
+  icon: github
+
 
 url_code: ""
 url_pdf: ""
-url_slides: ""
+url_slides: "https://docs.google.com/presentation/d/1EiTvqYIWldkry24dzyX8S3xlptY6c1jhRkuF8syV3LQ/edit?usp=sharing"
 url_video: ""
 
 # Slides (optional).
@@ -38,4 +45,7 @@ url_video: ""
 #   E.g. `slides = "example-slides"` references `content/slides/example-slides.md`.
 #   Otherwise, set `slides = ""`.
 slides: ""
+draft: true
 ---
+
+The idea for Major Space came into existence during a "kickoff event" for our week of final group capstone projects in my Spring 2020 semester with Adjacent Academies.

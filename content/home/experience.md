@@ -26,7 +26,7 @@ date_format = "Jan 2006"
   date_end = "2020-05-01"
   description = """
   Experience with:
-  
+
   * NodeJS Web Development - Javascript, HTML5
   * PostgreSQL via Knex & Objection ORM
   * Heroku deployment, serving custom domains
@@ -40,8 +40,8 @@ date_format = "Jan 2006"
   date_start = "2018-08-15"
   date_end = "2019-06-30"
   description = """
-  
-  
+  Accomplishments:
+
   * Managed $100,000+ organizational budget
   * Created comprehensive budgeting & bookkeeping system in Google Drive
   * Secured a 17% budget increase from FY19 to FY20

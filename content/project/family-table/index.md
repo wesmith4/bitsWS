@@ -1,13 +1,13 @@
 ---
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
-title: "Agro Blog"
+title: "Family Table"
 summary: ""
-authors: []
-tags: ["data", "blog", "r", "r markdown"]
-categories: ["Data", "R"]
-date: 2020-05-13T16:11:56-05:00
-
+authors: [admin]
+tags: ["web app", "web development", "NodeJS"]
+categories: ["Web Apps", "Adjacent Academies"]
+date: 2020-05-13T22:00:14-05:00
+draft: true
 # Optional external URL for project (replaces project detail page).
 external_link: ""
 
@@ -21,15 +21,20 @@ image:
 
 # Custom links (optional).
 #   Uncomment and edit lines below to show custom links.
-# links:
+links:
 # - name: Follow
 #   url: https://twitter.com
 #   icon_pack: fab
 #   icon: twitter
+- name: Site
+  url: https://myfamilytable.site
+- name: GitHub
+  icon_pack: fab
+  icon: github
 
 url_code: ""
 url_pdf: ""
-url_slides: ""
+url_slides: "https://docs.google.com/presentation/d/1ZXp1GLT994cJ77hTNDellv9nBQBX7SLmmw7lOtiG7qk/edit?usp=sharing"
 url_video: ""
 
 # Slides (optional).
