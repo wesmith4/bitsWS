@@ -15,19 +15,9 @@ subtitle = ""
 # For available icons, see: https://sourcethemes.com/academic/docs/page-builder/#icons
 
 [[feature]]
-  icon = "r-project"
+  icon = "node"
   icon_pack = "fab"
-  name = "R"
-
-[[feature]]
-  icon = "chart-line"
-  icon_pack = "fas"
-  name = "Statistics"
-
-[[feature]]
-  icon = "js-square"
-  icon_pack = "fab"
-  name = "Javascript"
+  name = "NodeJS"
 
 [[feature]]
   icon = "html5"
@@ -40,9 +30,23 @@ subtitle = ""
   name = "SQL"
 
 [[feature]]
-  icon = "comments"
+  icon = "r-project"
+  icon_pack = "fab"
+  name = "R"
+
+[[feature]]
+  icon = "chart-line"
+  icon_pack = "fas"
+  name = "Statistics"
+
+[[feature]]
+  icon = "project-diagram"
+  icon_pack = "fas"
+  name = "Project Management"
+
+[[feature]]
+  icon = "globe-americas"
   icon_pack = "fas"
   name = "Spanish"
   description = "Fluent"
-
 +++

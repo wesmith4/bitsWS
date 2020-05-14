@@ -47,4 +47,18 @@ date_format = "Jan 2006"
   * Secured a 17% budget increase from FY19 to FY20
   """
 
+[[experience]]
+  title = "Operations Intern"
+  company = "Waffle House, Inc."
+  company_url = "https://wafflehouse.com"
+  location = "Birmingham, AL and Norcross, GA"
+  date_start = "2018-06-11"
+  date_end = "2018-07-14"
+
+[[experience]]
+  title = "Data Analytics Intern"
+  company = "Royal Cup Coffee and Tea"
+  company_url = "https://royalcupcoffee.com"
+  date_start = "2017-06-01"
+  date_end = "2017-07-31"
 +++

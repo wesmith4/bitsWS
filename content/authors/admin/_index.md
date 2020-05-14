@@ -40,4 +40,4 @@ user_groups:
 - Visitors
 ---
 
-# Description goes here, in paragraphs
+Hello!  I'm a rising senior at Davidson College, currently living at home in Birmingham, AL for the summer. Complementing my focus in Economics, I have pursued a variety of disciplines and experiences in the past few years, including a semester abroad in Peru, a tech bootcamp in San Francisco, and courses in data science and applied mathematics.  I am currently seeking roles and opportunities to utilize and expand on my unique portfolio of skills, education, and experiences.
