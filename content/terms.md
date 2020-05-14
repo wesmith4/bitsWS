@@ -6,7 +6,7 @@ editable: false
 header:
   caption: ""
   image: ""
-share: false
+share: true
 title: Terms
 ---
 

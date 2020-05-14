@@ -28,13 +28,21 @@ links:
 #   icon: twitter
 - name: Site
   url: https://myfamilytable.site
+- name: Presentation
+  url: https://youtu.be/IyAZ1RIagyI
+  icon: youtube
+  icon_pack: fab
+- name: Slides
+  url: https://docs.google.com/presentation/d/e/2PACX-1vSrkfVKZSdl-Dz61Uv6a1hEzp2HKLcAAI_6_xFnzdGXN4rNY-ivbFGOZ6Xrl0YGFtySp0wiHIVYM2cM/pub?start=false&loop=false&delayms=30000
+  icon: google-drive
+  icon_pack: fab
 - name: GitHub
   icon_pack: fab
   icon: github
 
 url_code: ""
 url_pdf: ""
-url_slides: "https://docs.google.com/presentation/d/1ZXp1GLT994cJ77hTNDellv9nBQBX7SLmmw7lOtiG7qk/edit?usp=sharing"
+url_slides: ""
 url_video: ""
 
 # Slides (optional).
@@ -44,3 +52,6 @@ url_video: ""
 #   Otherwise, set `slides = ""`.
 slides: ""
 ---
+
+<!-- My presentation video on Youtube -->
+{{< youtube IyAZ1RIagyI >}}
