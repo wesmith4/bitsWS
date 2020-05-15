@@ -127,7 +127,7 @@ crops <- crops %>% filter(!(Item %in% crops_aggregated))
 ```
 
 
-```{r usa-production-yield, layout="l-body-outset", fig.width=8}
+```{r usa-production-yield, layout="l-body-outset"}
 usa_top10_production <- crops %>% filter(Element == "Production" & Area == "United States of America" & Year == 2018) %>% arrange(desc(value)) %>% mutate(Rank = dense_rank(desc(value))) %>% select(Rank, Item, value) %>% head(10) %>%
   format.data.frame(big.mark=",") %>% kable(caption = "Top 10 Most-Produced Crops in USA, 2018", col.names = c("Rank", "Crop", "Production (tons)")) %>% kable_styling(full_width = F, position = "float_left")
 
@@ -156,7 +156,7 @@ crops %>% filter(Item == "Maize" & Year == 2018 & Element == "Production") %>% m
 
 Now, with this Table \@ref(tab:compare-corn) of the top ten corn-producing countries, let's see how their production has changed since 1961.
 
-```{r corn-graph, fig.width=8, message=FALSE, cache=TRUE, warning=FALSE, layout="l-body-outset"}
+```{r corn-graph, message=FALSE, cache=TRUE, warning=FALSE, layout="l-body-outset"}
 cornGraph <- displayCropsInfoByCountries(top10CornCountries, c("Maize"), "Production")
 cornPlot <- ggplotly(cornGraph, width = 800)
 ```
