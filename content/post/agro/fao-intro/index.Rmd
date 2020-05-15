@@ -44,6 +44,9 @@ library(scales)
 
 
 ## Welcome!
+Thank you for visiting my site!
+If you have not yet read the introduction to this summer "Agro Blog" project of mine, take a look at the [project page](/project/agro-blog)!
+
 With this first post of Agro Blog, I'm going to do some basic exploration of a FAO dataset [@FAOSTAT] which includes measures of production, yield, and area harvested for the whole list of crops and countries recorded, with observations ranging from 1961 to 2018.
 
 In this exploration, I will go through my steps of working with this dataset in R, including the cleaning/tidying process, exploratory analysis, and visualization.
