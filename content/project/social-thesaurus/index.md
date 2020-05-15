@@ -4,8 +4,8 @@
 title: "Social Thesaurus"
 summary: ""
 authors: []
-tags: []
-categories: []
+tags: ["web app", "NodeJS", "web development"]
+categories: ["Web Apps", "Adjacent Academies"]
 date: 2020-05-13T22:12:38-05:00
 draft: true
 # Optional external URL for project (replaces project detail page).
@@ -30,7 +30,7 @@ links:
   url: http://social-thesaurus.herokuapp.com
 - name: GitHub
   url: https://github.com/wesmith4/social-thesaurus
-  icon-pack: fab
+  icon_pack: fab
   icon: github
 
 

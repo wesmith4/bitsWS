@@ -20,8 +20,8 @@ hero_media = "bitsWS-logo.png"
   color = "#ac1a2f"
 
   # Background gradient.
-  # gradient_start = "#4bb4e3"
-  # gradient_end = "#2b94c3"
+  gradient_start = "#ac1a2f"
+  gradient_end = "#093C67"
 
   # Background image.
   # image = ""  # Name of image in `static/img/`.
