@@ -150,7 +150,7 @@ top10CornCountries <- filter(crops, Year == 2018 & Element == "Production" & Ite
 
 ```{r compare-corn}
 crops %>% filter(Item == "Maize" & Year == 2018 & Element == "Production") %>% mutate(Rank = dense_rank(desc(value))) %>% select(Rank, Area, Item, value) %>% arrange(Rank) %>% format.data.frame(big.mark=",") %>%
-  head(10) %>% kable("html", align = "c", caption = "Top 10 Producers of Corn, 2018", col.names = c("Rank", "Country", "Crop", "Production (tons)")) %>% kable_styling(full_width = F, bootstrap_options = c("striped", "hover"))
+  head(10) %>% kable("html", align = "c", caption = "Top 10 Producers of Corn, 2018", col.names = c("Rank", "Country", "Crop", "Production (tons)")) %>% kable_styling(full_width = F, bootstrap_options = c("striped", "hover"), position = "center")
 
 ```
 
@@ -187,7 +187,7 @@ I expected to see the presence of sugar cane and potatoes at the top of this lis
 
 ```{r potato-countries}
 crops %>% filter(Item == "Potatoes" & Year == 2018 & Element == "Production") %>% mutate(Rank = dense_rank(desc(value))) %>% select(Rank, Area, value) %>% format.data.frame(big.mark=",") %>%
-  arrange(desc(value)) %>% head(10) %>% kable(align = "c", caption = "Top 10 Producers of Potatoes, 2018", col.names = c("Rank", "Country","Production (tons)")) %>% kable_styling(full_width = F, bootstrap_options = c("striped", "hover"))
+  arrange(desc(value)) %>% head(10) %>% kable(align = "c", caption = "Top 10 Producers of Potatoes, 2018", col.names = c("Rank", "Country","Production (tons)")) %>% kable_styling(full_width = F, bootstrap_options = c("striped", "hover"), position = "center")
 ```
 
 I'm surprised that Peru does not make this top-10 list, given the origins of the potato in the Andean highlands.  I'll add Peru in to this list to compare its production to the global leaders.
