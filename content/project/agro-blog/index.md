@@ -41,7 +41,9 @@ url_video: ""
 slides: ""
 ---
 
-My name is [Will Smith](/#about), and I am a rising senior at Davidson College, where I'm pursuing a major in Economics with an additional focus in Applied Mathematics. Approaching my final year of college, I wanted to extend my knowledge and skills in these fields with some published work available online. Thus, I have decided this summer to pursue a data science blog covering topics in agriculture, especially their economic implications.
+My name is [Will Smith](/#about), and I am a rising senior at Davidson College, where I'm pursuing a major in Economics with an additional focus in Applied Mathematics. Approaching my final year of college, I wanted to extend my knowledge and skills in these fields with some published work available online. Thus, I have decided this summer to pursue a data science blog covering topics in agriculture, especially their economic implications. 
+
+The posts for this blog can be found at the bottom of this page or at the [*agro* post directory](/post/agro).
 
 ## Background - Why Agriculture?
 I have long been interested in farming and agriculture, for their obvious role in bringing food and other necessary items to the tables of the world. When I was younger, I had the opportunity to travel with my family to Iowa, where my grandfather owns a corn and soybeans farm.  I'm sure my younger self was just ready to get out of the car after hours of driving through fields, but I appreciate having this experience observing a small part of big agriculture first-hand.
