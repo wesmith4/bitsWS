@@ -10,7 +10,8 @@ categories: ["Agro"]
 date: 2020-05-13T16:48:03-05:00
 lastmod: 2020-05-13T16:48:03-05:00
 featured: true
-draft: true
+bibliography: references.bib
+draft: false
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.
@@ -43,7 +44,7 @@ library(scales)
 
 
 ## Welcome!
-With this first post of Agro Blog, I'm going to do some basic exploration of a dataset from the United Nations Food and Agriculture Organization (FAO) which includes measures of production, yield, and area harvested for the whole list of crops and countries recorded, with observations ranging from 1961 to 2018.
+With this first post of Agro Blog, I'm going to do some basic exploration of a FAO dataset [@FAOSTAT] which includes measures of production, yield, and area harvested for the whole list of crops and countries recorded, with observations ranging from 1961 to 2018.
 
 In this exploration, I will go through my steps of working with this dataset in R, including the cleaning/tidying process, exploratory analysis, and visualization.
 
@@ -182,21 +183,22 @@ showMostProduced("Peru", 2018, 10, "float_left")
 crops %>% filter(Element == "Yield" & Area == "Peru" & Year == 2018) %>% mutate(Rank = dense_rank(desc(value))) %>% select(Rank, Item, value) %>% arrange(Rank) %>% format.data.frame(big.mark=",") %>% head(10) %>% kable(caption = "10 Highest-Yielding Crops in Peru, 2018", col.names = c("Rank", "Item", "Yield (tons/hectare)")) %>% kable_styling(position = "left", full_width = F)
 ```
 
-I expected to see the presence of sugar cane and potatoes at the top of this list - these two crops reflect both the Spanish colonial history and indigenous history of the region.  First, let's look at the worldwide top 10 producers of potatoes (which originate from the Andean highlands).
+I expected to see the presence of sugar cane and potatoes at the top of this list - these two crops reflect both the Spanish colonial history and indigenous history of the region.  As I experienced living there for a semester, the potato crop is extremely important for diets and nutrition in Peru, across many regions.  First, let's look at the 10 biggest producers of potatoes globally.
 
 ```{r potato-countries}
 crops %>% filter(Item == "Potatoes" & Year == 2018 & Element == "Production") %>% mutate(Rank = dense_rank(desc(value))) %>% select(Rank, Area, value) %>% format.data.frame(big.mark=",") %>%
   arrange(desc(value)) %>% head(10) %>% kable(align = "c", caption = "Top 10 Producers of Potatoes, 2018", col.names = c("Rank", "Country","Production (tons)")) %>% kable_styling(full_width = F, bootstrap_options = c("striped", "hover"))
 ```
 
-Peru doesn't make the top-10 list, so let's see where the country stacks up in potato production.
+I'm surprised that Peru does not make this top-10 list, given the origins of the potato in the Andean highlands.  I'll add Peru in to this list to compare its production to the global leaders.
+
 ```{r potato-countries-with-peru}
 crops %>% filter(Item == "Potatoes" & Year == 2018 & Element == "Production") %>% mutate(Rank = dense_rank(desc(value))) %>% filter(Rank <= 10 | Area == "Peru") %>% select(Rank, Area, value) %>% format.data.frame(big.mark=",") %>% arrange(match(Area, "Peru"), Rank) %>% kable(align = "c", caption = "Peru vs. Top 10 Producers of Potatoes, 2018", col.names = c("Rank", "Country", "Production (tons)")) %>% kable_styling(full_width = F, position = "center")
 ```
 
-Let's do another visualization of how production of potatoes in these countries has developed over time.
+As I expected, Peru was not much farther down the list, at 14. Let's do another time-series visualization of how production of potatoes in these countries has developed.
 
-```{r potato-graph, message=FALSE, fig.cap="Potato Production", class.output="full-width"}
+```{r potato-graph, message=FALSE, fig.cap="Potato Production", class.output="full-width", cache=TRUE}
 topPotatoCountries <- crops %>% filter(Element == "Production" & Item == "Potatoes" & Year == 2018) %>%
   mutate(Rank = dense_rank(desc(value))) %>% filter(Rank <= 10 | Area == "Peru") %>% select(Area) %>%
   dplyr::pull(var = 1)
@@ -205,3 +207,8 @@ potatoPlot <- displayCropsInfoByCountries(topPotatoCountries, c("Potatoes"), "Pr
 frameWidget(potatoPlot)
 ```
 
+There is a lot more variation in this graph, compared to the time-series graph of corn production in Figure \@ref(fig:plotly-corn-graph).  China's leadership in this global market is a much more recent development than the dominance of United States corn in the previous graph.  Again, these results leave me desiring consumption data to address the other dimension of this market.  In particular, I'd like to find out whether Peru is a net importer or exporter of potatoes, since the commodity is so valuable to the population.  A FAO report [@FAO-potato] cites the *perishability* and high *transport costs* of potatoes, so I would doubt much significant trade between Peru and countries like China and India.  I will likely pursue further investigations of this topic in future posts.
+
+
+## References
+<div id="refs"></div>
