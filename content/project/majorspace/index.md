@@ -6,7 +6,7 @@ summary: "My Adjacent Academies group capstone project."
 authors: [admin]
 tags: ["web app", "web development", "NodeJS", "web-scraping"]
 categories: ["Web Apps", "Adjacent Academies"]
-date: 2020-05-01T19:05:16-05:00
+date: 2020-05-11T19:05:16-05:00
 featured: true
 # Optional external URL for project (replaces project detail page).
 external_link: ""
