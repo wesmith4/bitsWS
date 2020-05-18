@@ -10,6 +10,7 @@ categories: ["Agro"]
 date: {{ .Date }}
 lastmod: {{ .Date }}
 featured: false
+bibliography: references.bib
 draft: true
 
 # Featured image
