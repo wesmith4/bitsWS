@@ -15,9 +15,9 @@ subtitle = ""
 # For available icons, see: https://sourcethemes.com/academic/docs/page-builder/#icons
 
 [[feature]]
-  icon = "node"
+  icon = "node-js"
   icon_pack = "fab"
-  name = "NodeJS"
+  name = "Node.js"
 
 [[feature]]
   icon = "html5"

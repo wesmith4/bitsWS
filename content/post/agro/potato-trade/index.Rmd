@@ -2,13 +2,14 @@
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
 title: "Potato Trade"
+slug: "potato-trade"
 subtitle: ""
 summary: ""
 authors: [admin]
 tags: ["R", "R Markdown", "data", "agro"]
 categories: ["Agro"]
-date: {{ .Date }}
-lastmod: {{ .Date }}
+date: '`r format(Sys.Date())`'
+lastmod: '`r format(Sys.Date())`'
 featured: false
 bibliography: references.bib
 draft: true
@@ -37,12 +38,38 @@ library(magrittr)
 library(knitr)
 library(kableExtra)
 library(plotly)
+library(scales)
 ```
 
 ## Data
 
-```{r import-data, include=FALSE, cache=TRUE}
+
+```{r import-data, cache=TRUE, message=FALSE, echo=TRUE}
 # Read in the data from csv file, store as "raw_data" - not to be overwritten
 raw_data <- read_csv("../data/FAO_potato_trade.csv", guess_max = 5000, local = locale(encoding = "latin1")) %>% as_tibble()
-raw_data %>% head(10) %>% kable(caption = "Raw Data") %>% kable_styling()
+raw_data %>% head(10) %>% kable(caption = "Raw Data from FAO") %>% kable_styling(full_width = T, bootstrap_options = c("responsive"))
 ```
+
+As you can see in the last two columns of this data frame, some observations are marked with a flag. 
+
+```{r drop-flags}
+allFlags <- distinct(raw_data, Flag)
+
+# Filter out the flagged observations and drop the Flag and Flag description columns
+working_data <- raw_data %>% filter(is.na(Flag)) %>% subset(select = -c(Flag, `Flag Description`))
+```
+
+```{r trade-balance}
+showQuantityBalance <- function(country) {
+  balance <- working_data %>% filter(Area == country & Item == "Potatoes") %>%
+    pivot_wider(id_cols = c(Area, Year), names_from = Element, values_from = Value) %>%
+    mutate(
+      quantity_balance = `Export Quantity` - `Import Quantity`,
+      value_balance = `Export Value` - `Import Value`
+    )
+  balance %>% ggplot(mapping = aes(Year, quantity_balance)) + geom_smooth(se=FALSE) +   scale_y_continuous(label_comma())
+}
+
+showQuantityBalance("United States of America")
+```
+

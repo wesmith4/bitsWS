@@ -7,8 +7,8 @@ summary: ""
 authors: [admin]
 tags: []
 categories: []
-date: {{ .Date }}
-lastmod: {{ .Date }}
+date: '`r format(Sys.Date())`'
+lastmod: '`r format(Sys.Date())`'
 featured: false
 draft: true
 

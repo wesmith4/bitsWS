@@ -1,0 +1,537 @@
+---
+# Documentation: https://sourcethemes.com/academic/docs/managing-content/
+
+title: "Potato Trade"
+slug: "potato-trade"
+subtitle: ""
+summary: ""
+authors: [admin]
+tags: ["R", "R Markdown", "data", "agro"]
+categories: ["Agro"]
+date: '2020-05-18'
+lastmod: '2020-05-18'
+featured: false
+bibliography: references.bib
+draft: true
+
+# Featured image
+# To use, add an image named `featured.jpg/png` to your page's folder.
+# Focal points: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight.
+image:
+  caption: ""
+  focal_point: "Smart"
+  preview_only: false
+
+# Projects (optional).
+#   Associate this post with one or more of your projects.
+#   Simply enter your project's folder or file name without extension.
+#   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
+#   Otherwise, set `projects = []`.
+projects: ["agro-blog"]
+---
+
+<script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
+
+
+<div id="data" class="section level2">
+<h2>Data</h2>
+<pre class="r"><code># Read in the data from csv file, store as &quot;raw_data&quot; - not to be overwritten
+raw_data &lt;- read_csv(&quot;../data/FAO_potato_trade.csv&quot;, guess_max = 5000, local = locale(encoding = &quot;latin1&quot;)) %&gt;% as_tibble()
+raw_data %&gt;% head(10) %&gt;% kable(caption = &quot;Raw Data from FAO&quot;) %&gt;% kable_styling(full_width = T, bootstrap_options = c(&quot;responsive&quot;))</code></pre>
+<table class="table table-responsive" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:import-data">Table 1: </span>Raw Data from FAO
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Domain Code
+</th>
+<th style="text-align:left;">
+Domain
+</th>
+<th style="text-align:right;">
+Area Code
+</th>
+<th style="text-align:left;">
+Area
+</th>
+<th style="text-align:right;">
+Element Code
+</th>
+<th style="text-align:left;">
+Element
+</th>
+<th style="text-align:right;">
+Item Code
+</th>
+<th style="text-align:left;">
+Item
+</th>
+<th style="text-align:right;">
+Year Code
+</th>
+<th style="text-align:right;">
+Year
+</th>
+<th style="text-align:left;">
+Unit
+</th>
+<th style="text-align:right;">
+Value
+</th>
+<th style="text-align:left;">
+Flag
+</th>
+<th style="text-align:left;">
+Flag Description
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+TP
+</td>
+<td style="text-align:left;">
+Crops and livestock products
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+Afghanistan
+</td>
+<td style="text-align:right;">
+5610
+</td>
+<td style="text-align:left;">
+Import Quantity
+</td>
+<td style="text-align:right;">
+116
+</td>
+<td style="text-align:left;">
+Potatoes
+</td>
+<td style="text-align:right;">
+2017
+</td>
+<td style="text-align:right;">
+2017
+</td>
+<td style="text-align:left;">
+tonnes
+</td>
+<td style="text-align:right;">
+290050
+</td>
+<td style="text-align:left;">
+R
+</td>
+<td style="text-align:left;">
+Estimated data using trading partners database
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TP
+</td>
+<td style="text-align:left;">
+Crops and livestock products
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+Afghanistan
+</td>
+<td style="text-align:right;">
+5622
+</td>
+<td style="text-align:left;">
+Import Value
+</td>
+<td style="text-align:right;">
+116
+</td>
+<td style="text-align:left;">
+Potatoes
+</td>
+<td style="text-align:right;">
+2017
+</td>
+<td style="text-align:right;">
+2017
+</td>
+<td style="text-align:left;">
+1000 US$
+</td>
+<td style="text-align:right;">
+77886
+</td>
+<td style="text-align:left;">
+R
+</td>
+<td style="text-align:left;">
+Estimated data using trading partners database
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TP
+</td>
+<td style="text-align:left;">
+Crops and livestock products
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+Afghanistan
+</td>
+<td style="text-align:right;">
+5910
+</td>
+<td style="text-align:left;">
+Export Quantity
+</td>
+<td style="text-align:right;">
+116
+</td>
+<td style="text-align:left;">
+Potatoes
+</td>
+<td style="text-align:right;">
+2017
+</td>
+<td style="text-align:right;">
+2017
+</td>
+<td style="text-align:left;">
+tonnes
+</td>
+<td style="text-align:right;">
+4903
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+Official data
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TP
+</td>
+<td style="text-align:left;">
+Crops and livestock products
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+Afghanistan
+</td>
+<td style="text-align:right;">
+5922
+</td>
+<td style="text-align:left;">
+Export Value
+</td>
+<td style="text-align:right;">
+116
+</td>
+<td style="text-align:left;">
+Potatoes
+</td>
+<td style="text-align:right;">
+2017
+</td>
+<td style="text-align:right;">
+2017
+</td>
+<td style="text-align:left;">
+1000 US$
+</td>
+<td style="text-align:right;">
+1490
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+Official data
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TP
+</td>
+<td style="text-align:left;">
+Crops and livestock products
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+Albania
+</td>
+<td style="text-align:right;">
+5610
+</td>
+<td style="text-align:left;">
+Import Quantity
+</td>
+<td style="text-align:right;">
+116
+</td>
+<td style="text-align:left;">
+Potatoes
+</td>
+<td style="text-align:right;">
+2017
+</td>
+<td style="text-align:right;">
+2017
+</td>
+<td style="text-align:left;">
+tonnes
+</td>
+<td style="text-align:right;">
+5735
+</td>
+<td style="text-align:left;">
+R
+</td>
+<td style="text-align:left;">
+Estimated data using trading partners database
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TP
+</td>
+<td style="text-align:left;">
+Crops and livestock products
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+Albania
+</td>
+<td style="text-align:right;">
+5622
+</td>
+<td style="text-align:left;">
+Import Value
+</td>
+<td style="text-align:right;">
+116
+</td>
+<td style="text-align:left;">
+Potatoes
+</td>
+<td style="text-align:right;">
+2017
+</td>
+<td style="text-align:right;">
+2017
+</td>
+<td style="text-align:left;">
+1000 US$
+</td>
+<td style="text-align:right;">
+2538
+</td>
+<td style="text-align:left;">
+R
+</td>
+<td style="text-align:left;">
+Estimated data using trading partners database
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TP
+</td>
+<td style="text-align:left;">
+Crops and livestock products
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+Albania
+</td>
+<td style="text-align:right;">
+5910
+</td>
+<td style="text-align:left;">
+Export Quantity
+</td>
+<td style="text-align:right;">
+116
+</td>
+<td style="text-align:left;">
+Potatoes
+</td>
+<td style="text-align:right;">
+2017
+</td>
+<td style="text-align:right;">
+2017
+</td>
+<td style="text-align:left;">
+tonnes
+</td>
+<td style="text-align:right;">
+142
+</td>
+<td style="text-align:left;">
+R
+</td>
+<td style="text-align:left;">
+Estimated data using trading partners database
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TP
+</td>
+<td style="text-align:left;">
+Crops and livestock products
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+Albania
+</td>
+<td style="text-align:right;">
+5922
+</td>
+<td style="text-align:left;">
+Export Value
+</td>
+<td style="text-align:right;">
+116
+</td>
+<td style="text-align:left;">
+Potatoes
+</td>
+<td style="text-align:right;">
+2017
+</td>
+<td style="text-align:right;">
+2017
+</td>
+<td style="text-align:left;">
+1000 US$
+</td>
+<td style="text-align:right;">
+66
+</td>
+<td style="text-align:left;">
+R
+</td>
+<td style="text-align:left;">
+Estimated data using trading partners database
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TP
+</td>
+<td style="text-align:left;">
+Crops and livestock products
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+Algeria
+</td>
+<td style="text-align:right;">
+5610
+</td>
+<td style="text-align:left;">
+Import Quantity
+</td>
+<td style="text-align:right;">
+116
+</td>
+<td style="text-align:left;">
+Potatoes
+</td>
+<td style="text-align:right;">
+2017
+</td>
+<td style="text-align:right;">
+2017
+</td>
+<td style="text-align:left;">
+tonnes
+</td>
+<td style="text-align:right;">
+141694
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+Official data
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TP
+</td>
+<td style="text-align:left;">
+Crops and livestock products
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+Algeria
+</td>
+<td style="text-align:right;">
+5622
+</td>
+<td style="text-align:left;">
+Import Value
+</td>
+<td style="text-align:right;">
+116
+</td>
+<td style="text-align:left;">
+Potatoes
+</td>
+<td style="text-align:right;">
+2017
+</td>
+<td style="text-align:right;">
+2017
+</td>
+<td style="text-align:left;">
+1000 US$
+</td>
+<td style="text-align:right;">
+94231
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+Official data
+</td>
+</tr>
+</tbody>
+</table>
+<p>As you can see in the last two columns of this data frame, some observations are marked with a flag.</p>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="/post/agro/potato-trade/index_files/figure-html/trade-balance-1.png" width="672" /></p>
+</div>
