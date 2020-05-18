@@ -1,0 +1,47 @@
+---
+# Documentation: https://sourcethemes.com/academic/docs/managing-content/
+
+title: "Potato Trade"
+subtitle: ""
+summary: ""
+authors: [admin]
+tags: ["R", "R Markdown", "data", "agro"]
+categories: ["Agro"]
+date: {{ .Date }}
+lastmod: {{ .Date }}
+featured: false
+draft: true
+
+# Featured image
+# To use, add an image named `featured.jpg/png` to your page's folder.
+# Focal points: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight.
+image:
+  caption: ""
+  focal_point: "Smart"
+  preview_only: false
+
+# Projects (optional).
+#   Associate this post with one or more of your projects.
+#   Simply enter your project's folder or file name without extension.
+#   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
+#   Otherwise, set `projects = []`.
+projects: ["agro-blog"]
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+# Read in modules
+library(tidyverse)
+library(magrittr)
+library(knitr)
+library(kableExtra)
+library(plotly)
+```
+
+## Data
+
+```{r import-data, include=FALSE, cache=TRUE}
+# Read in the data from csv file, store as "raw_data" - not to be overwritten
+raw_data <- read_csv("../data/FAO_potato_trade.csv", guess_max = 5000, local = locale(encoding = "latin1")) %>% as_tibble()
+raw_data %>% head(10) %>% kable(caption = "Raw Data") %>% kable_styling()
+```
