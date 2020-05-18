@@ -2,7 +2,7 @@
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
 title: "Agro Blog"
-summary: "Summer data science blog covering topics in food and agrictulture."
+summary: "Summer data science blog covering topics in food and agriculture."
 authors: [admin]
 tags: ["data", "blog", "r", "r markdown"]
 categories: ["Data", "R"]
