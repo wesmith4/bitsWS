@@ -12,8 +12,8 @@ education:
     year: 2017
 email: "wismith@davidson.edu"
 interests:
-- Economics Research
-- Applied Mathematics
+- Project Management
+- Economic problem-solving
 - Data Analytics
 - Web Development
 organizations:

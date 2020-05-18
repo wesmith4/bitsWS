@@ -27,9 +27,9 @@ date_format = "Jan 2006"
   description = """
   Experience with:
 
-  * NodeJS Web Development - Javascript, HTML5
-  * PostgreSQL via Knex & Objection ORM
-  * Heroku deployment, serving custom domains
+  * Full stack JavaScript Web Development
+  * Node.js, Express, PostgreSQL via Objection, Heroku
+  * On-site and remote team collaboration, project management
   """
 
 [[experience]]
