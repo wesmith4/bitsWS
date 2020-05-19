@@ -60,16 +60,31 @@ working_data <- raw_data %>% filter(is.na(Flag)) %>% subset(select = -c(Flag, `F
 ```
 
 ```{r trade-balance}
-showQuantityBalance <- function(country) {
-  balance <- working_data %>% filter(Area == country & Item == "Potatoes") %>%
+showQuantityBalance <- function(countries) {
+  balance <- working_data %>% filter(Area %in% countries & Item == "Potatoes") %>%
     pivot_wider(id_cols = c(Area, Year), names_from = Element, values_from = Value) %>%
     mutate(
       quantity_balance = `Export Quantity` - `Import Quantity`,
       value_balance = `Export Value` - `Import Value`
     )
-  balance %>% ggplot(mapping = aes(Year, quantity_balance)) + geom_smooth(se=FALSE) +   scale_y_continuous(label_comma())
+  balance %>% ggplot(mapping = aes(Year, quantity_balance, color = Area)) + geom_smooth(se=FALSE) +   scale_y_continuous(labels = comma) +  
+    ggtitle("Net exports/imports of Potatoes (Tons)") + ylab("Tons") + coord_cartesian(xlim = c(1960, 2020))
 }
 
-showQuantityBalance("United States of America")
+showQuantityBalance(c("United States of America", "Peru", "Bolivia (Plurinational State of)"))
+```
+
+```{r import-export}
+showImportsExports <- function(countries) {
+  data <- working_data %>% filter(Area %in% countries & Item == "Potatoes" & Element %in% c("Import Quantity", "Export Quantity"))
+  data %>% ggplot(mapping = aes(Year, Value, color = Element)) + geom_smooth(se = FALSE) + facet_wrap(~ Area) + coord_cartesian(xlim = c(1960, 2020))
+}
+
+showImportsExports(c("United States of America", "Peru"))
+```
+
+```{r camote-papa}
+working_data %>% filter(Area == "Peru" & Element == "Export Quantity") %>%
+  ggplot(mapping = aes(Year, Value, color = Item)) + geom_point() + geom_smooth(se = FALSE) + ylab("Export Quantity (tons)")
 ```
 

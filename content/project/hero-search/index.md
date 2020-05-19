@@ -2,7 +2,7 @@
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
 title: "Hero Search"
-summary: ""
+summary: "A search interface for superhero profiles from Superhero API"
 authors: [admin]
 tags: ["web app", "web development", "NodeJS"]
 categories: ["Web Apps", "Adjacent Academies"]

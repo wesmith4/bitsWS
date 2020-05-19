@@ -2,7 +2,7 @@
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
 title: "Family Table"
-summary: ""
+summary: "My individual capstone project for Adjacent Academies"
 authors: [admin]
 tags: ["web app", "web development", "NodeJS"]
 categories: ["Web Apps", "Adjacent Academies"]
@@ -37,6 +37,7 @@ links:
   icon: google-drive
   icon_pack: fab
 - name: GitHub
+  url: https://github.com/wesmith4/familytable
   icon_pack: fab
   icon: github
 
