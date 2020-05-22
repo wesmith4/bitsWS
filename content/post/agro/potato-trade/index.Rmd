@@ -4,7 +4,7 @@
 title: "Potato Trade"
 slug: "potato-trade"
 subtitle: ""
-summary: ""
+summary: "Diving deeper into the world 'potato economy'"
 authors: [admin]
 tags: ["R", "R Markdown", "data", "agro"]
 categories: ["Agro"]
@@ -32,7 +32,13 @@ projects: ["agro-blog"]
 
 In my last post, I visualized potato production by the world market leaders over the past 60 years, with an additional focus on comparing Peru's production to the global top 10.  
 
-This post will use another dataset from the FAOSTAT database - observations of import/export quantities and values for potatoes and sweet potatoes since 1960.  
+This time, I want to dive a bit deeper into the world "potato economy," integrating a trade matrix dataset with the "crops" data I examined last time. This new dataset provides observations of the Export and Import quantities and values for the same range of crops and countries included in the last dataset.  It also provides another level of detail that will really help me out - the "partner country" involved in the trade. In other words, one row in this trade matrix dataset represents an observation of one measure (quantity/value imported/exported) of one crop in one year between two specific countries.
+
+Working with these two datasets means that I will need to use *relational data* methods - processes and functions to combine/join tables using *key* elements that either already exist in the tables or could be added in a series of steps to unite the data.
+
+Fortunately, I downloaded both of my datasets from the FAOSTAT database, which makes them *very easy* to join using a function built in to the [*dplyr*](https://blog.rstudio.com/2014/01/17/introducing-dplyr/) package for the R language.  You will see this in the [Joining Data] section.
+
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 # Read in modules
@@ -44,14 +50,16 @@ library(plotly)
 library(scales)
 ```
 
-## Data
+## Importing Data
 
-
-```{r import-data, cache=TRUE, message=FALSE, echo=TRUE}
+```{r import-trade-data, cache=TRUE, message=FALSE, echo=TRUE, out.width="100%"}
 # Read in the data from csv file, store as "raw_data" - not to be overwritten
-raw_data <- read_csv("../data/FAO_potato_trade.csv", guess_max = 5000, local = locale(encoding = "latin1")) %>% as_tibble()
+raw_data <- read_csv("../data/FAO_potato_matrix.csv", guess_max = 5000, local = locale(encoding = "latin1")) %>% as_tibble()
 raw_data %>% head(10) %>% kable(caption = "Raw Data from FAO") %>% kable_styling(full_width = T, bootstrap_options = c("responsive"))
 ```
+
+
+## Cleaning Data
 
 As you can see in the last two columns of this data frame, some observations are marked with a flag. 
 
@@ -70,32 +78,6 @@ working_data <- working_data %>% pivot_wider(
   )
 ```
 
-
-```{r trade-balance}
-showQuantityBalance <- function(countries) {
-  balance <- working_data %>% filter(Area %in% countries & Item == "Potatoes") %>%
-    pivot_wider(id_cols = c(Area, Year), names_from = Element, values_from = Value) %>%
-    mutate(
-      quantity_balance = `Export Quantity` - `Import Quantity`,
-      value_balance = `Export Value` - `Import Value`
-    )
-  balance %>% ggplot(mapping = aes(Year, quantity_balance, color = Area)) + geom_smooth(se=FALSE) +   scale_y_continuous(labels = comma) +  
-    ggtitle("Net exports/imports of Potatoes (Tons)") + ylab("Tons") + coord_cartesian(xlim = c(1960, 2020))
-}
-
-showQuantityBalance(c("United States of America", "Peru", "Bolivia (Plurinational State of)"))
-```
-
-```{r import-export}
-showImportsExports <- function(countries) {
-  data <- working_data %>% filter(Area %in% countries & Item == "Potatoes" & Element %in% c("Import Quantity", "Export Quantity"))
-  data %>% ggplot(mapping = aes(Year, Value, color = Element)) + geom_smooth(se = FALSE) + facet_wrap(~ Area) + coord_cartesian(xlim = c(1960, 2020))
-}
-
-showImportsExports(c("United States of America", "Peru"))
-```
-
-
 ```{r previous-data, cache=TRUE, message=FALSE}
 crops_aggregated <- c("Cereals (Rice Milled Eqv)", "Cereals, Total", "Citrus Fruit, Total", "Coarse Grain, Total", "Crops Primary", "Fibre Crops Primary", "Fruit Primary", "Oilcrops", "Pulses, Total", "Roots and Tubers, Total", "Treenuts, Total", "Vegetables Primary")
 
@@ -104,22 +86,30 @@ allAreas <- distinct(production_raw_data, Area)[[1]]
 areasToRemove <- allAreas[225:length(allAreas)]
 ```
 
-```{r clean-previous-data}
+```{r clean-previous-data, cache=TRUE}
 production <- production_raw_data %>% pivot_longer(
   cols = starts_with("Y"),
   names_to = "Year",
   names_prefix = "Y",
   values_to = "Value",
   values_drop_na = TRUE
-  
-) %>% filter(!(Item %in% crops_aggregated) & !(Area %in% areasToRemove) & !startsWith(Area, "China, ")) %>%
+  ) %>% filter(!(Item %in% crops_aggregated) & !(Area %in% areasToRemove) & !startsWith(Area, "China, ")) %>%
   pivot_wider(
     names_from = Element,
     values_from = Value
   )
+production$Year <- as.numeric(production$Year)
 ```
 
-```{r join-tables}
-production$Year <- as.numeric(production$Year)
+
+## Joining Data
+
+```{r join-tables, message=FALSE, echo=TRUE ,cache=TRUE}
 joined_tables <- working_data %>% left_join(production)
+joined_tables <- drop_na(joined_tables)
 ```
+
+```{r present-joined-data}
+joined_tables %>% head(10) %>% kable(caption = "The two tables, joined") %>% kable_styling(bootstrap_options = "responsive")
+```
+
