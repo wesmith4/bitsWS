@@ -30,6 +30,9 @@ image:
 projects: ["agro-blog"]
 ---
 
+In my last post, I visualized potato production by the world market leaders over the past 60 years, with an additional focus on comparing Peru's production to the global top 10.  
+
+This post will use another dataset from the FAOSTAT database - observations of import/export quantities and values for potatoes and sweet potatoes since 1960.  
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 # Read in modules
@@ -52,12 +55,21 @@ raw_data %>% head(10) %>% kable(caption = "Raw Data from FAO") %>% kable_styling
 
 As you can see in the last two columns of this data frame, some observations are marked with a flag. 
 
-```{r drop-flags}
+```{r drop-flags, cache=TRUE}
 allFlags <- distinct(raw_data, Flag)
 
 # Filter out the flagged observations and drop the Flag and Flag description columns
 working_data <- raw_data %>% filter(is.na(Flag)) %>% subset(select = -c(Flag, `Flag Description`))
 ```
+
+```{r pivot-wider}
+working_data <- working_data %>% pivot_wider(
+  names_from = Element, 
+  values_from = Value,
+  id_cols = c(Area, Year, Item)
+  )
+```
+
 
 ```{r trade-balance}
 showQuantityBalance <- function(countries) {
@@ -83,8 +95,31 @@ showImportsExports <- function(countries) {
 showImportsExports(c("United States of America", "Peru"))
 ```
 
-```{r camote-papa}
-working_data %>% filter(Area == "Peru" & Element == "Export Quantity") %>%
-  ggplot(mapping = aes(Year, Value, color = Item)) + geom_point() + geom_smooth(se = FALSE) + ylab("Export Quantity (tons)")
+
+```{r previous-data, cache=TRUE, message=FALSE}
+crops_aggregated <- c("Cereals (Rice Milled Eqv)", "Cereals, Total", "Citrus Fruit, Total", "Coarse Grain, Total", "Crops Primary", "Fibre Crops Primary", "Fruit Primary", "Oilcrops", "Pulses, Total", "Roots and Tubers, Total", "Treenuts, Total", "Vegetables Primary")
+
+production_raw_data <- read_csv("../data/Production_Crops_E_All_Data_NOFLAG.csv", guess_max = 5000, local = locale(encoding = "latin1")) %>% filter(Element == "Production")
+allAreas <- distinct(production_raw_data, Area)[[1]]
+areasToRemove <- allAreas[225:length(allAreas)]
 ```
 
+```{r clean-previous-data}
+production <- production_raw_data %>% pivot_longer(
+  cols = starts_with("Y"),
+  names_to = "Year",
+  names_prefix = "Y",
+  values_to = "Value",
+  values_drop_na = TRUE
+  
+) %>% filter(!(Item %in% crops_aggregated) & !(Area %in% areasToRemove) & !startsWith(Area, "China, ")) %>%
+  pivot_wider(
+    names_from = Element,
+    values_from = Value
+  )
+```
+
+```{r join-tables}
+production$Year <- as.numeric(production$Year)
+joined_tables <- working_data %>% left_join(production)
+```
