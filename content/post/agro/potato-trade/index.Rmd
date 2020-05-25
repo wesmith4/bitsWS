@@ -74,7 +74,7 @@ working_data <- raw_data %>% filter(is.na(Flag)) %>% subset(select = -c(Flag, `F
 working_data <- working_data %>% pivot_wider(
   names_from = Element, 
   values_from = Value,
-  id_cols = c(Area, Year, Item)
+  id_cols = c(`Reporter Country Code`, `Reporter Countries`, `Partner Country Code`, `Partner Countries`, `Item Code`, Item, Year)
   )
 ```
 
@@ -104,8 +104,8 @@ production$Year <- as.numeric(production$Year)
 
 ## Joining Data
 
-```{r join-tables, message=FALSE, echo=TRUE ,cache=TRUE}
-joined_tables <- working_data %>% left_join(production)
+```{r join-tables, echo=TRUE, message=FALSE, cache=TRUE}
+joined_tables <- working_data %>% left_join(production, by = c("Reporter Countries" = "Area"))
 joined_tables <- drop_na(joined_tables)
 ```
 
