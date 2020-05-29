@@ -36,7 +36,7 @@ This time, I want to dive a bit deeper into the world "potato economy," integrat
 
 Working with these two datasets means that I will need to use *relational data* methods - processes and functions to combine/join tables using *key* elements that either already exist in the tables or could be added in a series of steps to unite the data.
 
-Fortunately, I downloaded both of my datasets from the FAOSTAT database, which makes them *very easy* to join using a function built in to the [*dplyr*](https://blog.rstudio.com/2014/01/17/introducing-dplyr/) package for the R language.  You will see this in the [Joining Data] section.
+Fortunately, I downloaded both of my datasets from the FAOSTAT database, which will makes them pretty easy to join using a function built in to the [**dplyr**](https://blog.rstudio.com/2014/01/17/introducing-dplyr/) package for the R language.  You will see this in the [Joining Data] section.
 
 
 ```{r setup, include=FALSE}
@@ -46,8 +46,8 @@ library(tidyverse)
 library(magrittr)
 library(knitr)
 library(kableExtra)
-library(plotly)
 library(scales)
+library(rworldmap)
 ```
 
 ## Importing Data
@@ -59,18 +59,26 @@ raw_data %>% head(10) %>% kable(caption = "Raw Data from FAO") %>% kable_styling
 ```
 
 
-## Cleaning Data
+## Preparing Data
 
-As you can see in the last two columns of this data frame, some observations are marked with a flag. 
+As you can see in the last two columns of the data frame in Table \@ref(tab:import-trade-data), some observations are marked with a flag. Each observation in this dataset is marked with one of the flags listed below to indicate how the data was gathered or calculated.
 
 ```{r drop-flags, cache=TRUE}
 allFlags <- distinct(raw_data, Flag)
+# Show table of flags and descriptions
+raw_data %>% select(Flag, `Flag Description`) %>% distinct(Flag, .keep_all = TRUE) %>% kable(caption = "Flags in the Trade Matrix Dataset") %>% kable_styling(full_width = F, position = "center")
 
 # Filter out the flagged observations and drop the Flag and Flag description columns
 working_data <- raw_data %>% filter(is.na(Flag)) %>% subset(select = -c(Flag, `Flag Description`))
 ```
 
-```{r pivot-wider}
+For the purposes of my analysis in this post, I will only use observations that use the "Official Data," filtering out the other types.  
+
+### Tidy Data
+
+Additionally, I want the data I have for the Import and Export quantities and values to be in their own columns in the data frame, rather than different observations. I just need to keep in mind that the quantities are in units of *tons* and the values are in units of *USD $1000*.  Here, I use the `pivot_wider` function from **tidyr** to accomplish this:
+
+```{r pivot-wider, echo=TRUE, message=FALSE, warning=FALSE}
 working_data <- working_data %>% pivot_wider(
   names_from = Element, 
   values_from = Value,
@@ -81,7 +89,7 @@ working_data <- working_data %>% pivot_wider(
 ```{r previous-data, cache=TRUE, message=FALSE}
 crops_aggregated <- c("Cereals (Rice Milled Eqv)", "Cereals, Total", "Citrus Fruit, Total", "Coarse Grain, Total", "Crops Primary", "Fibre Crops Primary", "Fruit Primary", "Oilcrops", "Pulses, Total", "Roots and Tubers, Total", "Treenuts, Total", "Vegetables Primary")
 
-production_raw_data <- read_csv("../data/Production_Crops_E_All_Data_NOFLAG.csv", guess_max = 5000, local = locale(encoding = "latin1")) %>% filter(Element == "Production")
+production_raw_data <- read_csv("../data/Production_Crops_E_All_Data_NOFLAG.csv", guess_max = 5000, local = locale(encoding = "latin1")) %>% filter(Element == "Production" & Item == "Potatoes") %>% drop_na()
 allAreas <- distinct(production_raw_data, Area)[[1]]
 areasToRemove <- allAreas[225:length(allAreas)]
 ```
@@ -105,11 +113,19 @@ production$Year <- as.numeric(production$Year)
 ## Joining Data
 
 ```{r join-tables, echo=TRUE, message=FALSE, cache=TRUE}
-joined_tables <- working_data %>% left_join(production, by = c("Reporter Countries" = "Area"))
+joined_tables <- working_data %>% left_join(production, by = c("Reporter Country Code" = "Area Code","Item Code", "Item", "Year"))
 joined_tables <- drop_na(joined_tables)
 ```
 
 ```{r present-joined-data}
 joined_tables %>% head(10) %>% kable(caption = "The two tables, joined") %>% kable_styling(bootstrap_options = "responsive")
+```
+
+## Exploration
+
+```{r}
+showTop10Destinations <- function(country, year) {
+  joined_tables %>% filter(`Reporter Countries` == country & Year == year) %>% arrange(desc(`Export Quantity`)) %>% head(10)
+}
 ```
 
