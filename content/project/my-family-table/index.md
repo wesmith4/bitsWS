@@ -7,7 +7,7 @@ authors: [admin]
 tags: ["web app", "web development", "NodeJS"]
 categories: ["Web Apps", "Adjacent Academies"]
 date: 2020-05-13T22:00:14-05:00
-draft: true
+draft: false
 # Optional external URL for project (replaces project detail page).
 external_link: ""
 
@@ -63,16 +63,19 @@ When brainstorming for my individual capstone project, this enjoyment of family 
 
 The week before our individual capstone projects, I had begun experimenting with React.js, wanting to learn how to use the framework to create a dynamic frontend for web apps. As I thought about the layout and functionality of My Family Table, I knew that I would need a dynamic form for new recipes - one that would allow users to add and delete input elements for ingredients and steps.  Based on this one need, I decided that I would develop the frontend of My Family Table as a React app. However, as I learned late Tuesday of our project week, this was a big mistake that cost me a lot of time and gave me plenty of headaches.
 
-
 At that point, I realized that implementing React involves a whole lot more than presenting elements like the ticking clock from the tutorial or the dynamic form from my site.  In order to make React work, I would have to map out the front-end routing by hand in the components - a step I had not researched when first reading up on the documentation.  In the series of projects I worked on during the semester, I did all of the routing with the Express framework, which provides a simple way to manage all *GET* and *POST* requests from the client.  Around 5:00 on that Tuesday, I decided that I was in over my head for a first attempt with React and then scrapped most everything and pivoted to implement my front-end through Express with Handlebars.
 
 ## The Pivot
-The decision to move away from React meant that I pretty much started over with most of my development.  Aside from the back-end ORM interactions with my PostgreSQL database, I did not have much code that would transfer over.  Knowing how I work best, it made much more sense to start all over with Handlebars views and partials than to attempt to salvage bits and pieces from my React code.
+The decision to move away from React meant that I had to start over with most of my development.  Aside from the back-end ORM interactions with my PostgreSQL database, I did not have much code that would transfer over.  Knowing how I work best, it made much more sense to start all over with Handlebars views and partials than to attempt to salvage bits and pieces from my React code.
 
 > *"Coding is so much more fun when I somewhat know what I'm doing and can go fast."*
 
 Beginning with my Handlebars `views/` directory, I started with the landing page for new users and the user homepage - both basic pages without any functionality other than anchor tags.  The greater task, however, would be replicate the dynamic form necessary for users to add a new recipe. With React, I could define a component method to add or delete fields for ingredients and steps. I then had to implement those same features with client-side JavaScript.
 I accomplished this without too much struggle using JQuery to bind functions for adding and deleting fields to the respective buttons in the form.
 
+Despite having to start over, I was very glad to be moving quickly and efficiently with familiar packages and processes as I moved forward on a tight schedule before the code freeze on Thursday.
+
+## Finishing Strong
+I feel that my desire to bring my project idea to life really gave me motivation to push through the difficulties and craft a good presentation for My Family Table.  My mother loved the site, and helped me out my entering a few of her favorite recipes to use in my demo while presenting the project.
 <!-- My presentation video on Youtube -->
 {{< youtube IyAZ1RIagyI >}}
