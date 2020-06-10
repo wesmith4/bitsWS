@@ -4,7 +4,7 @@
 title: "Hero Search"
 summary: "A search interface for superhero profiles from Superhero API"
 authors: [admin]
-tags: ["web app", "web development", "NodeJS"]
+tags: ["web app", "web development", "NodeJS", "API", "data"]
 categories: ["Web Apps", "Adjacent Academies"]
 date: 2020-05-13T22:12:54-05:00
 draft: true
