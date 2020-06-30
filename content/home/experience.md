@@ -17,6 +17,20 @@ date_format = "Jan 2006"
 #   Required fields are `title`, `company`, and `date_start`.
 #   Leave `date_end` empty if it's your current employer.
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
+
+[[experience]]
+  title = "Visual Programmer"
+  company = "Mulligans"
+  company_url = "www.mulligans.com/"
+  date_start = "2020-06-26"
+  description = """
+  Developing **Mulligans** marketplace platform with [Bubble.io](https://bubble.io) visual development.
+
+  * UI Design
+  * API Connections
+  * Backend workflows
+  """
+
 [[experience]]
   title = "Student Developer"
   company = "Adjacent Academies"
