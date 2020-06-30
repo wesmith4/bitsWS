@@ -21,10 +21,10 @@ date_format = "Jan 2006"
 [[experience]]
   title = "Visual Programmer"
   company = "Mulligans"
-  company_url = "www.mulligans.com/"
+  company_url = "https://www.mulligans.com/"
   date_start = "2020-06-26"
   description = """
-  Developing **Mulligans** marketplace platform with [Bubble.io](https://bubble.io) visual development.
+  Developing **Mulligans** marketplace platform with [Bubble.io](https://www.bubble.io) visual development.
 
   * UI Design
   * API Connections
