@@ -2,7 +2,7 @@
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
 title: "Digitizing DO"
-subtitle: ""
+subtitle: "My experience as Treasurer of Davidson Outdoors"
 summary: ""
 authors: [admin]
 tags: []
@@ -31,3 +31,13 @@ projects: []
 In my sophomore year at Davidson College, I served as the Treasurer for my favorite student organization on campus: Davidson Outdoors (DO).  This role meant a lot to me, because it gave me the opportunity to contribute my organizational and analytical abilities to this organization that had been my outlet for recreation and enjoying time in the outdoors with a great community of friends and mentors.
 
 Like many of my classmates at Davidson, I began my campus life through DO's *Outdoor Odyssey* program, a pre-orientation trip offering incoming first-year students the chance to form bonds with their peers through 5 or 8-day trips full of outdoor activities and challenges like backpacking, rock climbing, whitewater canoeing, community service, and a challenge course. Having enjoyed this program so much, I decided to participate in the following spring's training program for Davidson Outdoors Trip Leaders.  Aside from learning and practicing outdoor skills and group development, this training gave me an intimate understanding and appreciation for the operations of Davidson Outdoors as a campus organization and inspired me to involve myself as much as possible.
+
+So when the opportunity to apply for the DO Treasurer position came around in one of our periodic newsletter, I jumped on it.  I was excited to use my more academic/professional skills to further contribute to the success of Davidson Outdoors.  When my friends Keelan and Wilson (the DO president and VP) told me they wanted me for the job, we were just about to begin leading that Odyssey program for the incoming class below me, and I knew that it was going to be a challenging, busy, and fun sophomore year at Davidson.
+
+## Getting off the ground
+
+As we started the school year, I came to face a commonplace challenge with the DO Treasurer role: it is typically a sophomore who holds the position, and their predecessor is more than likely studying abroad in their junior fall like many of their classmates.  Thus, there was no immediate "training" available when I began in my duties.  I was to begin from the ground up with a single Excel spreadsheet with a few columns and rows outlining the general budget categories and totals for the D.O.fiscal year.
+
+Aside from having the FY19 budget in my hands, I enjoyed the "behind-the-scenes" tour of all the accounts and payments that support the operations of Davidson Outdoors.  I couldn't wait to get my feet wet in managing the funds that DO receives from the Activities Tax Council grants every year.  It is a significant sum, and organizing its spending was no simple task.
+
+With the zeal characteristic of a new "hire," I began
