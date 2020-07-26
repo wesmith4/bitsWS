@@ -28,6 +28,8 @@ links:
 #   icon: twitter
 - name: Site
   url: http://chatbox-prime.herokuapp.com
+  icon: globe
+  icon_pack: fas
 - name: GitHub
   url: https://github.com/wesmith4/project-js-social-wall
   icon_pack: fab

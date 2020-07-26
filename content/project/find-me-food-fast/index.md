@@ -28,6 +28,8 @@ links:
 #   icon: twitter
 - name: Site
   url: http://find-me-food-fast.herokuapp.com
+  icon: globe
+  icon_pack: fas
 - name: GitHub
   url: https://github.com/wesmith4/find-me-food-fast
   icon_pack: fab

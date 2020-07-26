@@ -28,6 +28,8 @@ links:
 #   icon: twitter
 - name: Site
   url: https://majorspace.net
+  icon: globe
+  icon_pack: fas
 - name: Presentation
   url: https://youtu.be/gqxpCJ0rbNY
   icon_pack: fab

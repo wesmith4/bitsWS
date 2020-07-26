@@ -28,6 +28,8 @@ links:
 #   icon: twitter
 - name: Site
   url: http://social-thesaurus.herokuapp.com
+  icon: globe
+  icon_pack: fas
 - name: GitHub
   url: https://github.com/wesmith4/social-thesaurus
   icon_pack: fab

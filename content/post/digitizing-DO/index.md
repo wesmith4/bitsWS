@@ -9,7 +9,7 @@ tags: []
 categories: []
 date: 2020-07-18T12:05:56-05:00
 lastmod: 2020-07-18T12:05:56-05:00
-featured: false
+featured: true
 draft: true
 
 # Featured image
@@ -28,7 +28,7 @@ image:
 projects: []
 ---
 
-In my sophomore year at Davidson College, I served as the Treasurer for my favorite student organization on campus: Davidson Outdoors (DO).  This role meant a lot to me, because it gave me the opportunity to contribute my organizational and analytical abilities to this organization that had been my outlet for recreation and enjoying time in the outdoors with a great community of friends and mentors.
+In my sophomore year at Davidson College, I served as the Treasurer for my favorite student organization on campus: Davidson Outdoors (DO)!  This role gave me a significant opportunity to contribute my organizational and analytical abilities to this organization that had been my outlet for recreation and enjoying time in the outdoors with a great community of friends and mentors.
 
 Like many of my classmates at Davidson, I began my campus life through DO's *Outdoor Odyssey* program, a pre-orientation trip offering incoming first-year students the chance to form bonds with their peers through 5 or 8-day trips full of outdoor activities and challenges like backpacking, rock climbing, whitewater canoeing, community service, and a challenge course. Having enjoyed this program so much, I decided to participate in the following spring's training program for Davidson Outdoors Trip Leaders.  Aside from learning and practicing outdoor skills and group development, this training gave me an intimate understanding and appreciation for the operations of Davidson Outdoors as a campus organization and inspired me to involve myself as much as possible.
 

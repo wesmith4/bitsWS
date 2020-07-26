@@ -28,6 +28,8 @@ links:
 #   icon: twitter
 - name: Site
   url: https://myfamilytable.site
+  icon: globe
+  icon_pack: fas
 - name: Presentation
   url: https://youtu.be/IyAZ1RIagyI
   icon: youtube

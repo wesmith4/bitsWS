@@ -28,6 +28,8 @@ links:
 #   icon: twitter
 - name: Site
   url: http://hero-search.herokuapp.com
+  icon: globe
+  icon_pack: fas
 - name: GitHub
   url: https://github.com/jazheng1/Superhero
   icon_pack: fab
