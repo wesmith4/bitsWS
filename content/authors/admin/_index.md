@@ -40,4 +40,4 @@ user_groups:
 - Visitors
 ---
 
-I'm a rising senior at Davidson College, currently living at home in Birmingham, AL for the summer. Complementing my major in Economics, I have pursued a variety of disciplines and experiences, including a semester abroad in Peru, a tech bootcamp semester in San Francisco, and courses in data science and applied mathematics.  I am currently seeking roles and opportunities to utilize and expand on my unique portfolio of skills, education, and experiences.
+I'm a rising senior at Davidson College, currently interning with Alvarez & Marsal's Private Equity Performance Improvement group. Complementing my major in Economics, I have pursued a variety of disciplines and experiences, including a semester living abroad in Peru, a tech bootcamp semester in San Francisco, and courses in data science and applied mathematics.  I am currently seeking roles and opportunities to utilize and expand on my unique portfolio of skills, education, and experiences.
