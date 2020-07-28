@@ -16,8 +16,8 @@ draft: true
 # To use, add an image named `featured.jpg/png` to your page's folder.
 # Focal points: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight.
 image:
-  caption: ""
-  focal_point: ""
+  caption: "Max Patch bald (Western NC), Summer 2018"
+  focal_point: "smart"
   preview_only: false
 
 # Projects (optional).
@@ -44,4 +44,4 @@ With the zeal characteristic of a new "hire," I began building out a spreadsheet
 
 ## A Digital Transformation
 
-I was very fortunate to join the officers team at a time when Davidson Outdoors was undergoing some radical *updates* in our operations.  In the last year, many processes such as trip sign-ups, payments, and feedback were transitioning to a G-Suite setup with a master spreadsheet accepting input from live forms.
+I was very fortunate to join the officers team at a time when Davidson Outdoors was undergoing some radical updates in our operations.  In the last year, many processes such as trip sign-ups, payments, and feedback were transitioning to a G-Suite setup with a master spreadsheet accepting input from live forms.  This was largely due to the dedication and prowess of Wilson Goode, who made great personal efforts to make DO run more efficiently.  As I began to construct the budgeting and accounting tool for running the Treasury, it only made sense to use the same G-Suite infrastructure, both for collaboration and consolidation of information.
