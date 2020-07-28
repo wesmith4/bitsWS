@@ -36,8 +36,12 @@ So when the opportunity to apply for the DO Treasurer position came around in on
 
 ## Getting off the ground
 
-As we started the school year, I came to face a commonplace challenge with the DO Treasurer role: it is typically a sophomore who holds the position, and their predecessor is more than likely studying abroad in their junior fall like many of their classmates.  Thus, there was no immediate "training" available when I began in my duties.  I was to begin from the ground up with a single Excel spreadsheet with a few columns and rows outlining the general budget categories and totals for the D.O.fiscal year.
+As we started the school year, I came to face a commonplace challenge with the DO Treasurer role: it is typically a sophomore who holds the position, and their predecessor is more than likely studying abroad in their junior fall like many of their classmates.  Thus, there was no immediate "training" available when I began in my duties.  I was to begin from the ground up with a single Excel spreadsheet with a few columns and rows outlining the general budget categories and totals for the D.O. fiscal year.
 
-Aside from having the FY19 budget in my hands, I enjoyed the "behind-the-scenes" tour of all the accounts and payments that support the operations of Davidson Outdoors.  I couldn't wait to get my feet wet in managing the funds that DO receives from the Activities Tax Council grants every year.  It is a significant sum, and organizing its spending was no simple task.
+Aside from having the FY19 budget in my hands, I enjoyed the "behind-the-scenes" tour of all the accounts and payments that support the operations of Davidson Outdoors.  I couldn't wait to get my feet wet in managing the funds that DO receives from the Activities Tax Council grants every year.  It is a significant sum, and organizing its spending is never a simple task.
 
-With the zeal characteristic of a new "hire," I began
+With the zeal characteristic of a new "hire," I began building out a spreadsheet system to serve as a ledger for our expenses and revenue. I modeled this document after a basic system I had created for my own personal finances - I could input the date, account, dollar amount, category, person responsible, and payment method for each transaction then summarize those transactions with category totals in a pivot table. Exactly the kind of work that is commonplace for most any 101-level Excel user, but that seems like magic to those unfamiliar.  As days turned into weeks, however, I quickly learned that Davidson Outdoors is *definitely not* a typical individual consumer.  My system needed some work.
+
+## A Digital Transformation
+
+I was very fortunate to join the officers team at a time when Davidson Outdoors was undergoing some radical *updates* in our operations.  In the last year, many processes such as trip sign-ups, payments, and feedback were transitioning to a G-Suite setup with a master spreadsheet accepting input from live forms.
