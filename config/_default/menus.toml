@@ -40,3 +40,9 @@
   url = "files/cv.pdf"
   weight = 70
   target = "_blank"
+
+[[main]]
+  name = "Personal Blog"
+  url = "https://blog.wesmith4.com"
+  weight = 80
+  target = "_blank"
