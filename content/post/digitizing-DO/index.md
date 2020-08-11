@@ -1,31 +1,20 @@
 ---
-# Documentation: https://sourcethemes.com/academic/docs/managing-content/
-
-title: "Digitizing DO"
-subtitle: "My experience as Treasurer of Davidson Outdoors"
-summary: ""
-authors: [admin]
+title: Digitizing DO
+subtitle: My experience as Treasurer of Davidson Outdoors
+authors:
+  - admin
 tags: []
 categories: []
-date: 2020-07-18T12:05:56-05:00
-lastmod: 2020-07-18T12:05:56-05:00
+date: {}
+lastmod: {}
 featured: true
 draft: true
-
-# Featured image
-# To use, add an image named `featured.jpg/png` to your page's folder.
-# Focal points: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight.
 image:
-  caption: "Max Patch bald (Western NC), Summer 2018"
-  focal_point: "smart"
+  caption: 'Max Patch bald (Western NC), Summer 2018'
+  focal_point: smart
   preview_only: false
-
-# Projects (optional).
-#   Associate this post with one or more of your projects.
-#   Simply enter your project's folder or file name without extension.
-#   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
-#   Otherwise, set `projects = []`.
 projects: []
+published: true
 ---
 
 In my sophomore year at Davidson College, I served as the Treasurer for my favorite student organization on campus: Davidson Outdoors (DO)!  This role gave me a significant opportunity to contribute my organizational and analytical abilities to this organization that had been my outlet for recreation and enjoying time in the outdoors with a great community of friends and mentors.
@@ -49,3 +38,7 @@ I was very fortunate to join the officers team at a time when Davidson Outdoors 
 Through my process of creating and revising this workbook in Google Sheets, I learned that an effective accounting system requires a solid understanding of the cost and revenue structures of the organization.  In the case of Davidson Outdoors, this meant exmaining the variety of trips, training, activities, and resources that we provide and creating sub-systems to manage the income and expenses of each of these "divisions". After gaining this understanding, I ended up developing three systems to record income and expenses: two duplicate systems specialized for trips and training programs and another for recording categorized "General Expenses" - costs associated with the operations of Davidson Outdoors, but not explicitly affiliated with a particular trip or training program.
 
 ## Adjusting to Scale
+
+As the volume of transactions and financial operations in Davidson Outdoors ramped up during the semester, so did the rigor and responsibilities of the Davidson academic load.  Despite having a reasonably effective system set up, the sheer number of receipts, records, and payments flooding in overwhelmed even my best efforts to "keep the checkbook balanced", so to speak.  
+
+This balancing was, indeed, one of my main objectives in maintaining a well-run treasury: I needed to make sure that my bookkeeping in our Google Sheets system reflected the number posted on our account balance, within a reasonable margin of error.  During the fall season of trips, we experienced a great deal of uncertainty regarding a major source of revenue - trip payments from participating students.  
