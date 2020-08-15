@@ -3,7 +3,7 @@ title: Digitizing DO
 subtitle: My experience as Treasurer of Davidson Outdoors
 authors:
   - admin
-tags: []
+tags: ["project", "college", "budget", "diligence"]
 categories: []
 date: {}
 lastmod: {}
@@ -14,7 +14,6 @@ image:
   focal_point: smart
   preview_only: false
 projects: []
-published: true
 ---
 
 In my sophomore year at Davidson College, I served as the Treasurer for my favorite student organization on campus: Davidson Outdoors (DO)!  This role gave me a significant opportunity to contribute my organizational and analytical abilities to this organization that had been my outlet for recreation and enjoying time in the outdoors with a great community of friends and mentors.
@@ -39,6 +38,8 @@ Through my process of creating and revising this workbook in Google Sheets, I le
 
 ## Adjusting to Scale
 
-As the volume of transactions and financial operations in Davidson Outdoors ramped up during the semester, so did the rigor and responsibilities of the Davidson academic load.  Despite having a reasonably effective system set up, the sheer number of receipts, records, and payments flooding in overwhelmed even my best efforts to "keep the checkbook balanced", so to speak.  
+As the volume of transactions and financial operations in Davidson Outdoors ramped up during the semester, so did the rigor and responsibilities of the Davidson academic load.  Despite having a reasonably effective system set up, the sheer number of receipts, records, and payments flooding in overwhelmed even my best efforts to "keep the checkbook balanced", so to speak.
 
-This balancing was, indeed, one of my main objectives in maintaining a well-run treasury: I needed to make sure that my bookkeeping in our Google Sheets system reflected the number posted on our account balance, within a reasonable margin of error.  During the fall season of trips, we experienced a great deal of uncertainty regarding a major source of revenue - trip payments from participating students.  
+This balancing was, indeed, one of my main objectives in maintaining a well-run treasury: I needed to ensure that my bookkeeping in our Google Sheets system reflected the number posted on our account balance, within a reasonable margin of error.  However, the combination of a great volume of Davidson Outdoors transactions and a rigorous course load proved very difficut to manage. By the time the holidays rolled around, I considered myself very far behind in balancing the checkbook - a large number of participant payments, refunds, and operating expenses had yet to be recorded in the system.
+
+The start of the spring semester provided me with a convenient opportunity to catch up.  Be
