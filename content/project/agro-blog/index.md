@@ -39,6 +39,7 @@ url_video: ""
 #   E.g. `slides = "example-slides"` references `content/slides/example-slides.md`.
 #   Otherwise, set `slides = ""`.
 slides: ""
+draft: true
 ---
 
 My name is [Will Smith](/#about), and I am a rising senior at Davidson College, where I'm pursuing a major in Economics with an additional focus in Applied Mathematics. Approaching my final year of college, I wanted to extend my knowledge and skills in these fields with some published work available online. Thus, I have decided this summer to pursue a data science blog covering topics in agriculture, especially their economic implications. 

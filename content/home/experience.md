@@ -19,17 +19,10 @@ date_format = "Jan 2006"
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
 
 [[experience]]
-  title = "Intern - Private Equity Performance Improvement"
-  company = "Alvarez & Marsal"
-  company_url = "https://www.alvarezandmarsal.com/"
-  date_start = "2020-07-06"
-  date_end = "2020-08-14"
-
-[[experience]]
   title = "Visual Programmer"
   company = "Mulligans"
   company_url = "https://www.mulligans.com/"
-  date_start = "2020-06-26"
+  date_start = "2020-07-26"
   description = """
   Developing **Mulligans** marketplace platform with [Bubble.io](https://www.bubble.io) visual development.
 
@@ -37,6 +30,13 @@ date_format = "Jan 2006"
   * API Connections
   * Backend workflows
   """
+
+[[experience]]
+  title = "Intern - Private Equity Performance Improvement"
+  company = "Alvarez & Marsal"
+  company_url = "https://www.alvarezandmarsal.com/"
+  date_start = "2020-07-06"
+  date_end = "2020-08-14"
 
 [[experience]]
   title = "Student Developer"
