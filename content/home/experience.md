@@ -19,16 +19,16 @@ date_format = "Jan 2006"
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
 
 [[experience]]
-  title = "Visual Programmer"
+  title = "App Developer"
   company = "Mulligans"
   company_url = "https://www.mulligans.com/"
   date_start = "2020-07-26"
   description = """
-  Developing **Mulligans** marketplace platform with [Bubble.io](https://www.bubble.io) visual development.
+  Developing **Mulligans** golf marketplace platform with [Bubble.io](https://www.bubble.io) visual development.
 
-  * UI Design
-  * API Connections
-  * Backend workflows
+  * Mobile UI design
+  * Low-code plugins & API connections
+  * Backend reporting and user notification workflows
   """
 
 [[experience]]
@@ -37,6 +37,13 @@ date_format = "Jan 2006"
   company_url = "https://www.alvarezandmarsal.com/"
   date_start = "2020-07-06"
   date_end = "2020-08-14"
+  description = """
+  Provided support and analysis for A&M consultant team working with client in high-end supercar rebuilds.
+
+  * Peer market research
+  * Identification of improvement opportunities in financial baseline
+  * Competitive analysis of potential logistics (3PL) vendors
+  """
 
 [[experience]]
   title = "Student Developer"

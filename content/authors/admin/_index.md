@@ -12,9 +12,9 @@ education:
     year: 2017
 email: "wismith@davidson.edu"
 interests:
-- Project Management
+- Product Management
+- Business Analytics
 - Economic problem-solving
-- Data Analytics
 - Web Development
 organizations:
 - name: Davidson College
