@@ -1,11 +1,11 @@
 ---
 authors:
 - admin
-bio: I'm a senior Economics Major at Davidson College, with interests in project management and data analytics.
+bio: I'm a senior Economics Major at Davidson College, with career aspirations in tech, product management, financial planning, and consulting.
 education:
   courses:
   - course: B.A., Economics
-    institution: Davidson College
+    institution: Davidson College (Davidson, NC)
     year: 2021
   - course: Advanced Diploma
     institution: Homewood High School (Homewood, AL)
