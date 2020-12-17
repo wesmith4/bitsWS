@@ -36,13 +36,13 @@
 # Link to a PDF of your resume/CV from the menu.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
 [[main]]
-  name = "CV"
-  url = "files/cv.pdf"
+  name = "Resume"
+  url = "files/resume_WillSmith.pdf"
   weight = 70
   target = "_blank"
 
-[[main]]
-  name = "Personal Blog"
-  url = "https://blog.wesmith4.com"
-  weight = 80
-  target = "_blank"
+#[[main]]
+#  name = "Personal Blog"
+#  url = "https://blog.wesmith4.com"
+#  weight = 80
+#  target = "_blank"

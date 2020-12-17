@@ -14,8 +14,8 @@ email: "wismith@davidson.edu"
 interests:
 - Product Management
 - Business Analytics
+- Financial Planning
 - Economic problem-solving
-- Web Development
 organizations:
 - name: Davidson College
   url: "https://davidson.edu"
@@ -40,4 +40,4 @@ user_groups:
 - Visitors
 ---
 
-I'm a senior at Davidson College with career interests in tech, consulting, private equity, and project management. Complementing my major in Economics, I have pursued a variety of disciplines and experiences, including a semester living abroad in Peru, a tech bootcamp semester in San Francisco, and courses in data science and applied mathematics.  I am currently seeking roles and opportunities to utilize and expand upon my unique portfolio of skills, education, and experiences.
+I'm a senior at Davidson College with career aspirations in tech, product management, financial planning, consulting, and private equity. Complementing my major in Economics, I have pursued a variety of disciplines and experiences, including a semester living abroad in Peru, a tech bootcamp semester in San Francisco, and courses in data science and applied mathematics.  I am currently seeking roles and opportunities to contribute my passions and skills toward companies driven by strong missions and great products!

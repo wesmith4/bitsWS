@@ -19,7 +19,19 @@ date_format = "Jan 2006"
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
 
 [[experience]]
-  title = "App Developer"
+  title = "Product Analyst Intern"
+  company = "Fleetio"
+  company_url = "https://fleetio.com/"
+  date_start = "2020-12-14"
+  description = """
+  Studying market trends, analyzing customer feedback, and collaborating with product managers, designers, and engineers to set up future strategic projects.
+
+  * Developing Notion wiki for keeping long-term learnings
+  * Analyzing customer and product data to find pain points and improvement opportunities
+  """
+
+[[experience]]
+  title = "Product Developer"
   company = "Mulligans"
   company_url = "https://www.mulligans.com/"
   date_start = "2020-07-26"
@@ -27,7 +39,7 @@ date_format = "Jan 2006"
   Developing **Mulligans** golf marketplace platform with [Bubble.io](https://www.bubble.io) visual development.
 
   * Mobile UI design
-  * Low-code plugins & API connections
+  * Low-code plugins & API connections to Algolia, Shippo, SendGrid, Stripe
   * Backend reporting and user notification workflows
   """
 
