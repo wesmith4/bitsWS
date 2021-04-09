@@ -19,10 +19,17 @@ date_format = "Jan 2006"
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
 
 [[experience]]
+  title = "Customer Success Intern"
+  company = "Case Status"
+  company_url = "https://casestatus.com/"
+  date_start = "2020-02-07"
+
+[[experience]]
   title = "Product Analyst Intern"
   company = "Fleetio"
   company_url = "https://fleetio.com/"
   date_start = "2020-12-14"
+  date_end = "2021-01-22"
   description = """
   Studying market trends, analyzing customer feedback, and collaborating with product managers, designers, and engineers to set up future strategic projects.
 
