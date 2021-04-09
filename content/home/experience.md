@@ -22,7 +22,7 @@ date_format = "Jan 2006"
   title = "Customer Success Intern"
   company = "Case Status"
   company_url = "https://casestatus.com/"
-  date_start = "2020-02-07"
+  date_start = "2021-02-07"
 
 [[experience]]
   title = "Product Analyst Intern"
