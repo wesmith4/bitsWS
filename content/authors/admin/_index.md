@@ -1,7 +1,7 @@
 ---
 authors:
 - admin
-bio: I'm a senior Economics Major at Davidson College, with career aspirations in tech, product management, financial planning, and consulting.
+bio: I'm a student of tech, aspiring Product person, eager learner, and a recent graduate of Davidson College.
 education:
   courses:
   - course: B.A., Economics
@@ -19,11 +19,11 @@ interests:
 organizations:
 - name: Davidson College
   url: "https://davidson.edu"
-role: Economics Student
+role: Class of 2021 (Economics, Applied Math, Magna Cum Laude)
 social:
 - icon: envelope
   icon_pack: fas
-  link: 'mailto:wismith@davidson.edu'
+  link: 'mailto:william.e.smithiv@gmail.com'
   target: "_blank"
 - icon: github
   icon_pack: fab
@@ -40,4 +40,4 @@ user_groups:
 - Visitors
 ---
 
-I'm a senior at Davidson College with career aspirations in tech, product management, financial planning, consulting, and private equity. Complementing my major in Economics, I have pursued a variety of disciplines and experiences, including a semester living abroad in Peru, a tech bootcamp semester in San Francisco, and courses in data science and applied mathematics.  I am currently seeking roles and opportunities to contribute my passions and skills toward companies driven by strong missions and great products!
+I'm a recent graduate of Davidson College with career aspirations in tech, product management, financial planning, consulting, and private equity. Complementing my education in Economics, I have pursued a variety of disciplines and experiences, including a semester living abroad in Peru, a tech bootcamp semester in San Francisco, and internships in both B2B SaaS and consumer e-commerce.  I am currently seeking opportunities to contribute my passions and skills toward companies driven by strong missions and great products!
