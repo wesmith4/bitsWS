@@ -4,7 +4,7 @@ authors:
 bio: I'm a student of tech, aspiring Product person, eager learner, and a recent graduate of Davidson College.
 education:
   courses:
-  - course: B.A., Economics, Applied Math, Magna Cum Laude
+  - course: B.A., Economics, Applied Math
     institution: Davidson College (Davidson, NC)
     year: 2021
   - course: Advanced Diploma
