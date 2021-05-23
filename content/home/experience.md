@@ -23,6 +23,12 @@ date_format = "Jan 2006"
   company = "Case Status"
   company_url = "https://casestatus.com/"
   date_start = "2021-02-07"
+  date_end = "2021-05-04"
+  description = """
+  * Built informative Sisense data dashboard to manage new firm onboarding into legal client management SaaS platform
+  * Outlined and presented product use case to configure the Case Status platform to manage this onboarding process
+  * Provided visualizations of implementation progress, ARR onboarding and renewal timelines for board meetings
+  """
 
 [[experience]]
   title = "Product Analyst Intern"
@@ -42,6 +48,7 @@ date_format = "Jan 2006"
   company = "Mulligans"
   company_url = "https://www.mulligans.com/"
   date_start = "2020-07-26"
+  data_end = "2021-05-20"
   description = """
   Developing **Mulligans** golf marketplace platform with [Bubble.io](https://www.bubble.io) visual development.
 
